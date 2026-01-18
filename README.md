@@ -1,7 +1,7 @@
 # bReliant
 
 <p align="center">
-  <img src="breliant_logo.png" width="600" alt="bReliant Agentic Framework">
+  <img src="breliant_logo.png" width="400" alt="bReliant Agentic Framework">
 </p>
 
 |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
