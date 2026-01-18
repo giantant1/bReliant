@@ -257,3 +257,9 @@ We also adhere to [Nike's Code of Conduct](https://github.com/Nike-Inc/nike-inc.
 - [General GitHub documentation](https://support.github.com/)
 - [GitHub pull request documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
 - [Nike OSS](https://nike-inc.github.io/)
+
+  ---
+### Legal Notice
+**bReliant** is a derivative work of [Koheesio](https://github.com), originally developed by **Nike-Inc**. 
+This project is licensed under the Apache License, Version 2.0. bReliant is maintained by **giantant1**.
+
