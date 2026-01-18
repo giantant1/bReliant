@@ -56,7 +56,7 @@ dependencies = [
 [project.urls]
 Documentation = "https://github.com"
 Issues = "https://github.com"
-Source = "https://github.com"
+Source = "https://github.com/giantant1/bReliant"
 Project = "https://github.com"
 
 [project.optional-dependencies]
