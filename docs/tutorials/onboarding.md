@@ -1,10 +1,10 @@
-# Onboarding to Koheesio
+# Onboarding to breliant
 
-Koheesio is a Python library that simplifies the development of data engineering pipelines. It provides a structured 
+breliant is a Python library that simplifies the development of data engineering pipelines. It provides a structured 
 way to define and execute data processing tasks, making it easier to build, test, and maintain complex data workflows. 
 
-This guide will walk you through the process of transforming a traditional Spark application into a Koheesio pipeline 
-along with explaining the advantages of using Koheesio over raw Spark.
+This guide will walk you through the process of transforming a traditional Spark application into a breliant pipeline 
+along with explaining the advantages of using breliant over raw Spark.
 
 ## Traditional Spark Application
 
@@ -33,9 +33,9 @@ df = df.groupBy("country").agg(avg("salary").alias("average_salary"))
 df.write.format("delta").partitionBy("country").save("/path/to/delta_table")
 ```
 
-## Transforming to Koheesio
+## Transforming to breliant
 
-The same pipeline can be rewritten using Koheesio's `EtlTask`. In this version, each step (reading, transformations, 
+The same pipeline can be rewritten using breliant's `EtlTask`. In this version, each step (reading, transformations, 
 writing) is encapsulated in its own class, making the code easier to understand and maintain.  
 
 First, a `CsvReader` is defined to read the input CSV file. Then, a `DeltaTableWriter` is defined to write the result 
@@ -49,10 +49,10 @@ These transformations are then passed to an `EtlTask` along with the reader and 
 executed to run the pipeline.
 
 ```python
-from koheesio.spark.etl_task import EtlTask
-from koheesio.spark.readers.file_loader import CsvReader
-from koheesio.spark.writers.delta.batch import DeltaTableWriter
-from koheesio.spark.transformations.transform import Transform
+from breliant.spark.etl_task import EtlTask
+from breliant.spark.readers.file_loader import CsvReader
+from breliant.spark.writers.delta.batch import DeltaTableWriter
+from breliant.spark.transformations.transform import Transform
 from pyspark.sql.functions import col, avg
 
 # Define reader
@@ -80,39 +80,39 @@ task = EtlTask(
 )
 task.execute()
 ```
-This approach with Koheesio provides several advantages. It makes the code more modular and easier to test. Each step
+This approach with breliant provides several advantages. It makes the code more modular and easier to test. Each step
 can be tested independently and reused across different tasks. It also makes the pipeline more readable and easier to
 maintain.
 
-## Advantages of Koheesio
+## Advantages of breliant
 
-Using Koheesio instead of raw Spark has several advantages:
+Using breliant instead of raw Spark has several advantages:
 
 - **Modularity**: Each step in the pipeline (reading, transformation, writing) is encapsulated in its own class, 
     making the code easier to understand and maintain.
 - **Reusability**: Steps can be reused across different tasks, reducing code duplication.
 - **Testability**: Each step can be tested independently, making it easier to write unit tests.
 - **Flexibility**: The behavior of a task can be customized using a `Context` class.
-- **Consistency**: Koheesio enforces a consistent structure for data processing tasks, making it easier for new 
+- **Consistency**: breliant enforces a consistent structure for data processing tasks, making it easier for new 
     developers to understand the codebase.
-- **Error Handling**: Koheesio provides a consistent way to handle errors and exceptions in data processing tasks.
-- **Logging**: Koheesio provides a consistent way to log information and errors in data processing tasks.
+- **Error Handling**: breliant provides a consistent way to handle errors and exceptions in data processing tasks.
+- **Logging**: breliant provides a consistent way to log information and errors in data processing tasks.
 
 In contrast, using the plain PySpark API for transformations can lead to more verbose and less structured code, which 
 can be harder to understand, maintain, and test. It also doesn't provide the same level of error handling, logging, and
-flexibility as the Koheesio Transform class.
+flexibility as the breliant Transform class.
 
 ## Using a Context Class
 
 Here's a simple example of how to use a `Context` class to customize the behavior of a task.
-The Context class in Koheesio is designed to behave like a dictionary, but with added features. 
+The Context class in breliant is designed to behave like a dictionary, but with added features. 
 
 ```python
-from koheesio import Context
-from koheesio.spark.etl_task import EtlTask
-from koheesio.spark.readers.file_loader import CsvReader
-from koheesio.spark.writers.delta import DeltaTableWriter
-from koheesio.spark.transformations.transform import Transform
+from breliant import Context
+from breliant.spark.etl_task import EtlTask
+from breliant.spark.readers.file_loader import CsvReader
+from breliant.spark.writers.delta import DeltaTableWriter
+from breliant.spark.transformations.transform import Transform
 
 context = Context({  # this could be stored in a JSON or YAML
     "age_threshold": 18,

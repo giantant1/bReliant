@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from koheesio.spark import DataFrame, SparkSession  # type: ignore
-from koheesio.spark.transformations.download_files import DownloadFileFromUrlTransformation  # type: ignore
+from breliant.spark import DataFrame, SparkSession  # type: ignore
+from breliant.spark.transformations.download_files import DownloadFileFromUrlTransformation  # type: ignore
 
 
 @pytest.fixture

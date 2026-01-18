@@ -1,7 +1,7 @@
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.uuid5 import HashUUID5
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.uuid5 import HashUUID5
 
 pytestmark = pytest.mark.spark
 

@@ -1,6 +1,6 @@
 # Python Logger Code Instructions
 
-Here you can find instructions on how to use the Koheesio Logging Factory.
+Here you can find instructions on how to use the breliant Logging Factory.
 
 ## Logging Factory
 
@@ -9,25 +9,25 @@ The `LoggingFactory` class is a factory for creating and configuring loggers. To
 1. Import the necessary modules:
 
     ```python
-    from koheesio.logger import LoggingFactory
+    from breliant.logger import LoggingFactory
     ```
 
-2. Initialize logging factory for koheesio modules:
+2. Initialize logging factory for breliant modules:
 
     ```python
-    factory = LoggingFactory(name="replace_koheesio_parent_name", env="local", logger_id="your_run_id")
+    factory = LoggingFactory(name="replace_breliant_parent_name", env="local", logger_id="your_run_id")
     # Or use default 
     factory = LoggingFactory()
-    # Or just specify log level for koheesio modules
+    # Or just specify log level for breliant modules
     factory = LoggingFactory(level="DEBUG")
     ```
 
-3. Create a logger by calling the `create_logger` method of the `LoggingFactory` class, you can inherit from koheesio logger:
+3. Create a logger by calling the `create_logger` method of the `LoggingFactory` class, you can inherit from breliant logger:
 
     ```python
     logger = LoggingFactory.get_logger(name=factory.LOGGER_NAME)
-   # Or for koheesio modules
-    logger = LoggingFactory.get_logger(name=factory.LOGGER_NAME,inherit_from_koheesio=True)
+   # Or for breliant modules
+    logger = LoggingFactory.get_logger(name=factory.LOGGER_NAME,inherit_from_breliant=True)
     ```
 
 4. You can now use the `logger` object to log messages:
@@ -75,12 +75,12 @@ The `LoggingFactory` class is a factory for creating and configuring loggers. To
     your_logger.critical("Critical message")
     ```
 
-8. (Optional) You can use Masked types to masked secrets/tokens/passwords in output. The Masked types are special types provided by the koheesio library to handle sensitive data
+8. (Optional) You can use Masked types to masked secrets/tokens/passwords in output. The Masked types are special types provided by the breliant library to handle sensitive data
     that should not be logged or printed in plain text. They are used to wrap sensitive data and override their string representation to prevent accidental exposure of the data.Here are some examples of how to use Masked types:
 
     ```python
     import logging
-    from koheesio.logger import MaskedString, MaskedInt, MaskedFloat, MaskedDict
+    from breliant.logger import MaskedString, MaskedInt, MaskedFloat, MaskedDict
 
     # Set up logging
     logger = logging.getLogger(__name__)
@@ -118,7 +118,7 @@ import logging
 factory = LoggingFactory(env="local")
 
 # Step 3: Create an independent logger with a custom log level
-your_logger = factory.get_logger("your_logger", inherit_from_koheesio=False)
+your_logger = factory.get_logger("your_logger", inherit_from_breliant=False)
 your_logger.setLevel(logging.DEBUG)
 
 # Step 4: Create a logger using the create_logger method from LoggingFactory with a different log level
@@ -165,18 +165,18 @@ Output:
 [a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [your_logger] {__init__.py:<module>:120} - Warning message
 [a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [your_logger] {__init__.py:<module>:121} - Error message
 [a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [your_logger] {__init__.py:<module>:122} - Critical message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [koheesio] {__init__.py:<module>:126} - Warning message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [koheesio] {__init__.py:<module>:127} - Error message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [koheesio] {__init__.py:<module>:128} - Critical message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [DEBUG] [koheesio.child] {__init__.py:<module>:130} - Debug message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [INFO] [koheesio.child] {__init__.py:<module>:131} - Info message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [koheesio.child] {__init__.py:<module>:132} - Warning message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [koheesio.child] {__init__.py:<module>:133} - Error message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [koheesio.child] {__init__.py:<module>:134} - Critical message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [INFO] [koheesio.child2] {__init__.py:<module>:137} - Info message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [koheesio.child2] {__init__.py:<module>:138} - Warning message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [koheesio.child2] {__init__.py:<module>:139} - Error message
-[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [koheesio.child2] {__init__.py:<module>:140} - Critical message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [breliant] {__init__.py:<module>:126} - Warning message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [breliant] {__init__.py:<module>:127} - Error message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [breliant] {__init__.py:<module>:128} - Critical message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [DEBUG] [breliant.child] {__init__.py:<module>:130} - Debug message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [INFO] [breliant.child] {__init__.py:<module>:131} - Info message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [breliant.child] {__init__.py:<module>:132} - Warning message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [breliant.child] {__init__.py:<module>:133} - Error message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [breliant.child] {__init__.py:<module>:134} - Critical message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [INFO] [breliant.child2] {__init__.py:<module>:137} - Info message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [WARNING] [breliant.child2] {__init__.py:<module>:138} - Warning message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [ERROR] [breliant.child2] {__init__.py:<module>:139} - Error message
+[a7d79f7a-f16f-4d2a-8430-1134830f61be] [2023-06-26 20:29:39,267] [CRITICAL] [breliant.child2] {__init__.py:<module>:140} - Critical message
 ```
 
 ## LoggerIDFilter Class
@@ -217,7 +217,7 @@ The `LoggerIDFilter` class is a filter that injects `run_id` information into th
    - If you want to keep the default value of `None`, leave it unchanged.
 
 3. Set the value for the `LOGGER_LEVEL` variable:
-   - If you want to use the value from the `"KOHEESIO_LOGGING_LEVEL"` environment variable, leave the code as is.
+   - If you want to use the value from the `"breliant_LOGGING_LEVEL"` environment variable, leave the code as is.
    - If you want to use a different environment variable or a specific default value, modify the code accordingly.
 
 7. Set the value for the `LOGGER_ENV` variable:

@@ -1,4 +1,4 @@
-from koheesio.utils import get_args_for_func, get_random_string
+from breliant.utils import get_args_for_func, get_random_string
 
 
 def test_get_args_for_func():
@@ -12,7 +12,7 @@ def test_get_args_for_func():
 def test_import_class():
     import datetime
 
-    from koheesio.utils import import_class
+    from breliant.utils import import_class
 
     assert import_class("datetime.datetime") == datetime.datetime
 

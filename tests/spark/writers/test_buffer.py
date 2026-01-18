@@ -13,7 +13,7 @@ from pyspark.sql.types import (
     TimestampType,
 )
 
-from koheesio.spark.writers.buffer import PandasCsvBufferWriter, PandasJsonBufferWriter
+from breliant.spark.writers.buffer import PandasCsvBufferWriter, PandasJsonBufferWriter
 
 pytestmark = pytest.mark.spark
 

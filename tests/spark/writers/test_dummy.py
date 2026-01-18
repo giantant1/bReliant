@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.writers.dummy import DummyWriter
+from breliant.spark.writers.dummy import DummyWriter
 
 pytestmark = pytest.mark.spark
 

@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.transformations.lookup import (
+from breliant.spark.transformations.lookup import (
     DataframeLookup,
     JoinHint,
     JoinMapping,

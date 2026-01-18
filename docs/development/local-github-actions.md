@@ -1,6 +1,6 @@
 # Testing GitHub Actions Locally with act
 
-This guide explains how to test Koheesio's GitHub Actions workflows locally using `act`, enabling faster development cycles and reducing CI resource usage.
+This guide explains how to test breliant's GitHub Actions workflows locally using `act`, enabling faster development cycles and reducing CI resource usage.
 
 ## Table of Contents
 

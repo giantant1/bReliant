@@ -1,6 +1,6 @@
 .PHONY: help  ## Display this message
 help:
-	@python src/koheesio/__about__.py
+	@python src/breliant/__about__.py
 	@echo "\nAvailable \033[34m'make'\033[0m commands:"
 	@echo "\n\033[1mSetup:\033[0m"
 	@grep -E '^.PHONY: .*?## setup - .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ".PHONY: |## (setup|hatch) - "}; {printf " \033[36m%-22s\033[0m %s\n", $$2, $$3}'
@@ -37,7 +37,7 @@ hatch-install:
 	@if [ `uname -s` = "Darwin" ]; then \
 		brew install hatch; \
 	else \
-		echo "Koheesio only supports automatic installation of hatch on Mac. Please install hatch manually, go to https://hatch.pypa.io/latest/install/ for instructions"; \
+		echo "breliant only supports automatic installation of hatch on Mac. Please install hatch manually, go to https://hatch.pypa.io/latest/install/ for instructions"; \
 	fi
 init: hatch-install
 

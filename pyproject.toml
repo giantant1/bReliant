@@ -356,10 +356,10 @@ filterwarnings = [
 source_pkgs = ["breliant", "tests"]
 branch = true
 parallel = true
-omit = ["src/breliant/__about__.py", "src/koheesio/__init__.py"]
+omit = ["src/breliant/__about__.py", "src/breliant/__init__.py"]
 
 [tool.coverage.paths]
-koheesio = ["src/breliant", "*/koheesio/src/koheesio"]
+breliant = ["src/breliant", "*/breliant/src/breliant"]
 tests = ["tests", "*/breliant/tests"]
 
 [tool.coverage.report]
@@ -579,7 +579,7 @@ force-sort-within-sections = true
 
 [tool.mypy]
 python_version = "3.10"
-files = ["koheesio/**/*.py"]
+files = ["breliant/**/*.py"]
 plugins = ["pydantic.mypy"]
 pretty = true
 warn_unused_configs = true

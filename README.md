@@ -63,7 +63,7 @@ bReliant ensures that as organizational intelligence expands, its environmental 
 ---
 
 ## Legal Notice
-**bReliant** is a derivative work of [Koheesio](https://github.com), originally developed by **Nike-Inc**.  
+**bReliant** is a derivative work of [breliant](https://github.com), originally developed by **Nike-Inc**.  
 This project is licensed under the **Apache License, Version 2.0**. bReliant is maintained and evolved by **giantant1**.
 
 ---

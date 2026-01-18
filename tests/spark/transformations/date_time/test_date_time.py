@@ -2,8 +2,8 @@ from datetime import datetime
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.date_time import (
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.date_time import (
     ChangeTimeZone,
     DateFormat,
     ToTimestamp,

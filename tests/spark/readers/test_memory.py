@@ -3,7 +3,7 @@ import pytest
 
 from pyspark.sql.types import StructType
 
-from koheesio.spark.readers.memory import DataFormat, InMemoryDataReader
+from breliant.spark.readers.memory import DataFormat, InMemoryDataReader
 
 pytestmark = pytest.mark.spark
 

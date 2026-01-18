@@ -12,12 +12,12 @@ from pydantic import ValidationError
 
 from pyspark.sql.types import LongType
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.delta import DeltaTableStep, StaleDataCheckStep
+from breliant.logger import LoggingFactory
+from breliant.spark.delta import DeltaTableStep, StaleDataCheckStep
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name="test_delta", inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name="test_delta", inherit_from_breliant=True)
 
 
 @pytest.mark.parametrize(
@@ -249,12 +249,12 @@ def test_stale_data_check_history_df(spark):
 def test_stale_data_check_step__no_refresh_day_num_with_time_components(
     interval, expected, test_stale_data_check_history_df, mocker
 ):
-    mocker.patch("koheesio.spark.delta.DeltaTableStep.describe_history", return_value=test_stale_data_check_history_df)
+    mocker.patch("breliant.spark.delta.DeltaTableStep.describe_history", return_value=test_stale_data_check_history_df)
     assert StaleDataCheckStep(table="dummy_table", interval=interval).execute().is_data_stale == expected
 
 
 def test_stale_data_check_step__no_table(mocker):
-    mocker.patch("koheesio.spark.delta.DeltaTableStep.describe_history", return_value=None)
+    mocker.patch("breliant.spark.delta.DeltaTableStep.describe_history", return_value=None)
     assert StaleDataCheckStep(table="dummy_table", interval=timedelta(days=1)).execute().is_data_stale
 
 
@@ -267,7 +267,7 @@ def test_stale_data_check_step__no_modification_history(mocker, spark):
             }
         ]
     )
-    mocker.patch("koheesio.spark.delta.DeltaTableStep.describe_history", return_value=history_df)
+    mocker.patch("breliant.spark.delta.DeltaTableStep.describe_history", return_value=history_df)
     assert StaleDataCheckStep(table="dummy_table", interval=timedelta(days=1)).execute().is_data_stale
 
 
@@ -306,7 +306,7 @@ def test_stale_data_check_step__no_modification_history(mocker, spark):
 def test_stale_data_check_step__with_refresh_day(
     interval, refresh_day_num, expected, test_stale_data_check_history_df, mocker
 ):
-    mocker.patch("koheesio.spark.delta.DeltaTableStep.describe_history", return_value=test_stale_data_check_history_df)
+    mocker.patch("breliant.spark.delta.DeltaTableStep.describe_history", return_value=test_stale_data_check_history_df)
     assert (
         StaleDataCheckStep(table="dummy_table", interval=interval, refresh_day_num=refresh_day_num)
         .execute()

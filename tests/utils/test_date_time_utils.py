@@ -2,7 +2,7 @@ from datetime import timedelta
 
 import pytest
 
-from koheesio.utils.date_time import DTInterval
+from breliant.utils.date_time import DTInterval
 
 
 @pytest.mark.parametrize(

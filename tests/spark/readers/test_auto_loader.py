@@ -3,7 +3,7 @@ import pytest
 
 from pyspark.sql.types import *
 
-from koheesio.spark.readers.databricks.autoloader import AutoLoader
+from breliant.spark.readers.databricks.autoloader import AutoLoader
 
 pytestmark = pytest.mark.spark
 
@@ -28,7 +28,7 @@ def mock_reader(self):
 
 
 def test_read_json_infer_schema(spark, mocker, data_path):
-    mocker.patch("koheesio.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
+    mocker.patch("breliant.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
 
     options = {"multiLine": "true"}
 
@@ -55,7 +55,7 @@ def test_read_json_infer_schema(spark, mocker, data_path):
 
 
 def test_read_json_exact_explicit_schema_struct(spark, mocker, data_path):
-    mocker.patch("koheesio.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
+    mocker.patch("breliant.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
 
     schema = StructType(
         [
@@ -82,7 +82,7 @@ def test_read_json_exact_explicit_schema_struct(spark, mocker, data_path):
 
 
 def test_read_json_different_explicit_schema_string(spark, mocker, data_path):
-    mocker.patch("koheesio.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
+    mocker.patch("breliant.spark.readers.databricks.autoloader.AutoLoader.reader", mock_reader)
 
     schema = "string STRING,array ARRAY<BIGINT>"
     options = {"multiLine": "true"}

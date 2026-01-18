@@ -4,18 +4,18 @@ Test the UpperCase columns transformation
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.strings.change_case import (
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.strings.change_case import (
     InitCap,
     LowerCase,
     TitleCase,
     UpperCase,
 )
-from koheesio.spark.utils import show_string
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name=__file__, inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name=__file__, inherit_from_breliant=True)
 data = [
     ["Banana lemon orange", 1000, "USA"],
     ["Carrots blueberries", 1500, None],

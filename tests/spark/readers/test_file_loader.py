@@ -2,8 +2,8 @@ import pytest
 
 import pyspark.sql.types as T
 
-from koheesio.spark import AnalysisException
-from koheesio.spark.readers.file_loader import (
+from breliant.spark import AnalysisException
+from breliant.spark.readers.file_loader import (
     AvroReader,
     CsvReader,
     FileFormat,

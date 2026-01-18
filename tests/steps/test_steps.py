@@ -14,10 +14,10 @@ import pytest
 
 from pydantic import ValidationError
 
-from koheesio.models import Field
-from koheesio.steps import Step, StepMetaClass, StepOutput
-from koheesio.steps.dummy import DummyOutput, DummyStep
-from koheesio.utils import get_project_root
+from breliant.models import Field
+from breliant.steps import Step, StepMetaClass, StepOutput
+from breliant.steps.dummy import DummyOutput, DummyStep
+from breliant.utils import get_project_root
 
 output_dict_1 = dict(a="foo", b=42)
 test_output_1 = DummyOutput(**output_dict_1)
@@ -270,7 +270,7 @@ class TestStep:
 
         This can happen when a step is inherited from another step, and the child step has a _execute_wrapper decorator
         applied to it. In this case, the _execute_wrapper decorator could be called multiple times, which is not what we want.
-        This test checks that Koheesio is not calling _execute_wrapper multiple times.
+        This test checks that breliant is not calling _execute_wrapper multiple times.
         """
 
         class FooStep(Step):
@@ -501,9 +501,9 @@ class TestStepMetaClass:
 
         Only one instance of each log is expected where logs are called in the StepMetaClass.
 
-        See [issue #167](https://github.com/Nike-Inc/koheesio/issues/167) for more details.
+        See [issue #167](https://github.com/Nike-Inc/breliant/issues/167) for more details.
         """
-        os.environ["KOHEESIO_LOGGING_LEVEL"] = "DEBUG"
+        os.environ["breliant_LOGGING_LEVEL"] = "DEBUG"
 
         # Arrange: simulate a deeply nested inheritance structure
 

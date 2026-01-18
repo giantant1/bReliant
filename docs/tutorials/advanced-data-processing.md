@@ -1,18 +1,18 @@
-# Advanced Data Processing with Koheesio
+# Advanced Data Processing with breliant
 
-In this guide, we will explore some advanced data processing techniques using Koheesio. We will cover topics such as 
+In this guide, we will explore some advanced data processing techniques using breliant. We will cover topics such as 
 complex transformations, handling large datasets, and optimizing performance.
 
 ## Complex Transformations
 
-Koheesio provides a variety of built-in transformations, but sometimes you may need to perform more complex operations 
+breliant provides a variety of built-in transformations, but sometimes you may need to perform more complex operations 
 on your data. In such cases, you can create custom transformations.
 
 Here's an example of a custom transformation that normalizes a column in a DataFrame:
 
 ```python
 from pyspark.sql import DataFrame
-from koheesio.spark.transformations.transform import Transform
+from breliant.spark.transformations.transform import Transform
 
 def normalize_column(df: DataFrame, column: str) -> DataFrame:
     max_value = df.agg({column: "max"}).collect()[0][0]
@@ -28,16 +28,16 @@ class NormalizeColumnTransform(Transform):
 ```
 
 ## Handling Large Datasets
-When working with large datasets, it's important to manage resources effectively to ensure good performance. Koheesio 
+When working with large datasets, it's important to manage resources effectively to ensure good performance. breliant 
 provides several features to help with this.  
 
 ## Partitioning
-Partitioning is a technique that divides your data into smaller, more manageable pieces, called partitions. Koheesio 
+Partitioning is a technique that divides your data into smaller, more manageable pieces, called partitions. breliant 
 allows you to specify the partitioning scheme for your data when writing it to a target.
 
 ```python
-from koheesio.spark.writers.delta import DeltaTableWriter
-from koheesio.spark.etl_task import EtlTask
+from breliant.spark.writers.delta import DeltaTableWriter
+from breliant.spark.etl_task import EtlTask
 
 class MyTask(EtlTask):
     target = DeltaTableWriter(table="my_table", partitionBy=["column1", "column2"])
@@ -52,7 +52,7 @@ class MyTask(EtlTask):
 [//]: # ()
 [//]: # (```python)
 
-[//]: # (from koheesio.spark.transformations.cache import CacheTransformation)
+[//]: # (from breliant.spark.transformations.cache import CacheTransformation)
 
 [//]: # ()
 [//]: # (class MyTask&#40;EtlTask&#41;:)

@@ -1,12 +1,12 @@
 ## Scope
 
-Koheesio adopts a comprehensive documentation approach that combines inline code documentation with structured external documentation. This document outlines our documentation standards and practices.
+breliant adopts a comprehensive documentation approach that combines inline code documentation with structured external documentation. This document outlines our documentation standards and practices.
 
 ### Code Documentation Standards
 
 #### Docstring Format
 
-All Koheesio classes, functions, and modules use **NumPy-style docstrings** with the following structure:
+All breliant classes, functions, and modules use **NumPy-style docstrings** with the following structure:
 
 1. **Brief Description**: A concise one-line summary at the top
 2. **Extended Description**: Optional detailed explanation (separated by a blank line)
@@ -18,7 +18,7 @@ All Koheesio classes, functions, and modules use **NumPy-style docstrings** with
 
 #### Markdown in Docstrings
 
-Koheesio docstrings support **markdown formatting** for better readability:
+breliant docstrings support **markdown formatting** for better readability:
 
 - Headers using `###` or underlined with `---`
 - Code blocks with triple backticks
@@ -52,7 +52,7 @@ class MyReader(Reader):
     Examples
     --------
     ```python
-    from koheesio.spark.readers import MyReader
+    from breliant.spark.readers import MyReader
 
     reader = MyReader(
         source_path="s3://bucket/data",
@@ -72,7 +72,7 @@ class MyReader(Reader):
 ```
 
 #### Field Documentation
-All Pydantic fields in Koheesio classes must include descriptions using the `description` parameter:
+All Pydantic fields in breliant classes must include descriptions using the `description` parameter:
 
 ```python
 class MyStep(Step):
@@ -88,7 +88,7 @@ class MyStep(Step):
 
 ### Documentation Structure
 
-Koheesio follows **The Documentation System** (Divio) with four documentation types:
+breliant follows **The Documentation System** (Divio) with four documentation types:
 
 1. **Tutorials**: Learning-oriented guides for newcomers
 2. **How-To Guides**: Task-oriented guides for specific problems

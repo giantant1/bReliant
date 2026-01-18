@@ -8,8 +8,8 @@ import pytest
 
 from pyspark.sql import types as t
 
-from koheesio.integrations.snowflake.test_utils import mock_query
-from koheesio.integrations.spark.snowflake import (
+from breliant.integrations.snowflake.test_utils import mock_query
+from breliant.integrations.spark.snowflake import (
     AddColumn,
     CreateOrReplaceTableFromDataFrame,
     DbTableQuery,
@@ -23,7 +23,7 @@ from koheesio.integrations.spark.snowflake import (
     TagSnowflakeQuery,
     map_spark_type,
 )
-from koheesio.spark.writers import BatchOutputMode
+from breliant.spark.writers import BatchOutputMode
 
 pytestmark = pytest.mark.spark
 
@@ -39,9 +39,9 @@ COMMON_OPTIONS = {
 
 
 def test_snowflake_module_import():
-    # test that the pass-through imports in the koheesio.spark snowflake modules are working
-    from koheesio.spark.readers import snowflake as snowflake_writers
-    from koheesio.spark.writers import snowflake as snowflake_readers
+    # test that the pass-through imports in the breliant.spark snowflake modules are working
+    from breliant.spark.readers import snowflake as snowflake_writers
+    from breliant.spark.writers import snowflake as snowflake_readers
 
 
 class TestSnowflakeReader:
@@ -77,7 +77,7 @@ class TestRunQuery:
 
     def test_spark_connect(self, spark):
         """Test that we get a RuntimeError when using a SparkSession without a JVM"""
-        from koheesio.spark.utils.connect import is_remote_session
+        from breliant.spark.utils.connect import is_remote_session
 
         if not is_remote_session(spark):
             pytest.skip(reason="Test only runs when we have a remote SparkSession")
@@ -150,8 +150,8 @@ class TestSnowflakeWriter:
 
 
 class TestSyncTableAndDataFrameSchema:
-    @mock.patch("koheesio.integrations.spark.snowflake.AddColumn")
-    @mock.patch("koheesio.integrations.spark.snowflake.GetTableSchema")
+    @mock.patch("breliant.integrations.spark.snowflake.AddColumn")
+    @mock.patch("breliant.integrations.spark.snowflake.GetTableSchema")
     def test_execute(self, mock_get_table_schema, mock_add_column, spark, caplog):
         # Arrange
         from pyspark.sql.types import StringType, StructField, StructType
@@ -166,7 +166,7 @@ class TestSyncTableAndDataFrameSchema:
             mock.Mock(table_schema=sf_schema_after),
         ]
 
-        logger = logging.getLogger("koheesio")
+        logger = logging.getLogger("breliant")
         logger.setLevel(logging.WARNING)
 
         # Act and Assert -- dry run

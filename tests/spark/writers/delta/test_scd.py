@@ -11,18 +11,18 @@ from pyspark.sql import Column
 from pyspark.sql import functions as F
 from pyspark.sql.types import Row
 
-from koheesio.spark import DataFrame
-from koheesio.spark.delta import DeltaTableStep
-from koheesio.spark.functions import current_timestamp_utc
-from koheesio.spark.utils import SPARK_MINOR_VERSION
-from koheesio.spark.writers.delta.scd import SCD2DeltaTableWriter
-from koheesio.spark.writers.delta.utils import SparkConnectDeltaTableException
+from breliant.spark import DataFrame
+from breliant.spark.delta import DeltaTableStep
+from breliant.spark.functions import current_timestamp_utc
+from breliant.spark.utils import SPARK_MINOR_VERSION
+from breliant.spark.writers.delta.scd import SCD2DeltaTableWriter
+from breliant.spark.writers.delta.utils import SparkConnectDeltaTableException
 
 pytestmark = pytest.mark.spark
 
 
 def test_scd2_custom_logic(spark):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     def _get_result(target_df: DataFrame, expr: str):
         res = (
@@ -294,7 +294,7 @@ def test_scd2_custom_logic(spark):
 
 
 def test_scd2_logic(spark):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     changes_data = [
         [("key1", "value1", "scd1-value11", "2024-05-01"), ("key2", "value2", "scd1-value21", "2024-04-01")],

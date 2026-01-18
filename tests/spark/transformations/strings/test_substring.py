@@ -4,13 +4,13 @@ Test the Substring columns transformation
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.strings.substring import Substring
-from koheesio.spark.utils import show_string
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.strings.substring import Substring
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name=__file__, inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name=__file__, inherit_from_breliant=True)
 
 data_with_strings = [[1, 2, "hello"], [3, 4, "world"], [3, 4, None]]
 schema_with_strings = ["c1", "c2", "c3"]

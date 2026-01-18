@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.readers.jdbc import JdbcReader
+from breliant.spark.readers.jdbc import JdbcReader
 
 pytestmark = pytest.mark.spark
 

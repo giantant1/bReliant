@@ -2,13 +2,13 @@ import datetime
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.strings.concat import Concat
-from koheesio.spark.utils import show_string
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.strings.concat import Concat
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name=__file__, inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name=__file__, inherit_from_breliant=True)
 
 
 string_data = [[1, "text1", "text2", "text3"], [2, "text4", "text5", "text6"]]

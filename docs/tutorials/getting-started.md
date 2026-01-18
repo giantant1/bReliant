@@ -1,4 +1,4 @@
-# Getting Started with Koheesio
+# Getting Started with breliant
 
 ## Requirements
 
@@ -9,12 +9,12 @@
 <details>
     <summary>hatch / hatchling</summary>
 
-    If you're using hatch (or hatchling), simply add `koheesio` to the `dependencies` or section in your 
+    If you're using hatch (or hatchling), simply add `breliant` to the `dependencies` or section in your 
     `pyproject.toml` file:
     
     ```toml title="pyproject.toml"
     dependencies = [
-        "koheesio",
+        "breliant",
     ]
     ```
 </details>
@@ -22,21 +22,21 @@
 <details>
     <summary>pip</summary>
     
-    If you're using pip, run the following command to install Koheesio:
+    If you're using pip, run the following command to install breliant:
     
     Requires [pip](https://pip.pypa.io/en/stable/).
     
     ```bash
-    pip install koheesio
+    pip install breliant
     ```
 </details>
 
 ## Basic Usage
 
-Once you've installed Koheesio, you can start using it in your Python scripts. Here's a basic example:
+Once you've installed breliant, you can start using it in your Python scripts. Here's a basic example:
 
 ```python title="my_first_step.py"
-from koheesio import Step
+from breliant import Step
 
 # Define a step
 class MyStep(Step):
@@ -56,12 +56,12 @@ step.execute()
 from pyspark.sql.functions import lit
 from pyspark.sql import DataFrame, SparkSession
 
-# Step 1: import Koheesio dependencies
-from koheesio.context import Context
-from koheesio.spark.readers.dummy import DummyReader
-from koheesio.spark.transformations.camel_to_snake import CamelToSnakeTransformation
-from koheesio.spark.writers.dummy import DummyWriter
-from koheesio.spark.etl_task import EtlTask
+# Step 1: import breliant dependencies
+from breliant.context import Context
+from breliant.spark.readers.dummy import DummyReader
+from breliant.spark.transformations.camel_to_snake import CamelToSnakeTransformation
+from breliant.spark.writers.dummy import DummyWriter
+from breliant.spark.etl_task import EtlTask
 
 # Step 2: Set up a SparkSession
 spark = SparkSession.builder.getOrCreate()
@@ -88,11 +88,11 @@ task.run()
 ```
 
 ### Contributing
-If you want to contribute to Koheesio, check out the `CONTRIBUTING.md` file in this repository. It contains guidelines
+If you want to contribute to breliant, check out the `CONTRIBUTING.md` file in this repository. It contains guidelines
 for contributing, including how to submit issues and pull requests.
 
 ### Testing
-To run the tests for Koheesio, use the following command:
+To run the tests for breliant, use the following command:
 
 ```bash
 make dev-test

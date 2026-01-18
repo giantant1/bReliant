@@ -13,9 +13,9 @@ import pytest
 
 from pyspark.sql import SparkSession
 
-from koheesio.models import SecretStr
-from koheesio.spark import DataFrame, SparkStep
-from koheesio.spark.transformations.transform import Transform
+from breliant.models import SecretStr
+from breliant.spark import DataFrame, SparkStep
+from breliant.spark.transformations.transform import Transform
 
 pytestmark = pytest.mark.spark
 
@@ -24,12 +24,12 @@ class TestSparkImportFailures:
     def test_import_error_no_error(self):
         secret = SecretStr("client_secret")
         with mock.patch.dict("sys.modules", {"pyspark": None}):
-            from koheesio.sso.okta import OktaAccessToken
+            from breliant.sso.okta import OktaAccessToken
 
             OktaAccessToken(url="https://abc.okta.com", client_id="client_id", client_secret=secret)
 
     def test_import_error_with_error(self):
-        with mock.patch.dict("sys.modules", {"pyspark.sql": None, "koheesio.steps.spark": None}):
+        with mock.patch.dict("sys.modules", {"pyspark.sql": None, "breliant.steps.spark": None}):
             with pytest.raises(ImportError):
                 from pyspark.sql import SparkSession
 
@@ -52,7 +52,7 @@ class TestSparkStep:
         assert step.spark is spark
 
     def test_get_active_session(self):
-        from koheesio.spark.utils.common import get_active_session
+        from breliant.spark.utils.common import get_active_session
 
         SparkSession.builder.appName("pytest-pyspark-local-testing-active-session").master("local[*]").getOrCreate()
 

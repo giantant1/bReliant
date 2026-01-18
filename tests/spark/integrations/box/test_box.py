@@ -6,7 +6,7 @@ import pytest
 
 from pydantic import ValidationError
 
-from koheesio.integrations.box import (
+from breliant.integrations.box import (
     Box,
     BoxBufferFileWriter,
     BoxCsvFileReader,
@@ -25,7 +25,7 @@ from koheesio.integrations.box import (
     SecretStr,
     StructType,
 )
-from koheesio.spark.writers.buffer import PandasCsvBufferWriter
+from breliant.spark.writers.buffer import PandasCsvBufferWriter
 
 pytestmark = pytest.mark.spark
 
@@ -117,8 +117,8 @@ def dummy_box(mocker):
             if kwargs["file_id"] == "30":
                 return self._mock_file(name="upload.csv", object_id="30", content=b"foo,bar\nA,2")
 
-    mocker.patch("koheesio.integrations.box.JWTAuth", spec=JWTAuth)
-    mocker.patch("koheesio.integrations.box.Client", new=DummyBox)
+    mocker.patch("breliant.integrations.box.JWTAuth", spec=JWTAuth)
+    mocker.patch("breliant.integrations.box.Client", new=DummyBox)
 
 
 class TestBox:

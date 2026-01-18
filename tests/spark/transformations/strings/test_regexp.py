@@ -4,13 +4,13 @@ Test the RegexpExtract and RegexpReplace columns transformations
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.strings.regexp import RegexpExtract, RegexpReplace
-from koheesio.spark.utils import show_string
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.strings.regexp import RegexpExtract, RegexpReplace
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name=__file__, inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name=__file__, inherit_from_breliant=True)
 
 data_year_wk = [["2020 W1"], ["2021 WK2"], ["2022WK3"]]
 schema_year_wk = ["year_week"]

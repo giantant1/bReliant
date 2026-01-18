@@ -4,8 +4,8 @@ import pytest
 
 from pydantic import SecretStr
 
-from koheesio.context import Context
-from koheesio.utils import get_project_root
+from breliant.context import Context
+from breliant.utils import get_project_root
 
 test_dict = dict(foo="bar", nested=dict(bar="baz"), listed=["first_item", dict(deeply_nested="lorem ipsum")])
 test_context = Context(test_dict)

@@ -4,8 +4,8 @@ import pytest
 
 from pyspark.sql import types as T
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.date_time.interval import (
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.date_time.interval import (
     DateTimeAddInterval,
     DateTimeColumn,
     DateTimeSubtractInterval,

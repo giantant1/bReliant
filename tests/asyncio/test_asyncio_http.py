@@ -8,10 +8,10 @@ from yarl import URL
 
 from pydantic import ValidationError
 
-from koheesio.asyncio.http import AsyncHttpStep
-from koheesio.steps.http import HttpMethod
+from breliant.asyncio.http import AsyncHttpStep
+from breliant.steps.http import HttpMethod
 
-ASYNC_BASE_URL = "https://42.koheesio.test"
+ASYNC_BASE_URL = "https://42.breliant.test"
 ASYNC_GET_ENDPOINT = URL(f"{ASYNC_BASE_URL}/get")
 ASYNC_STATUS_503_ENDPOINT = URL(f"{ASYNC_BASE_URL}/status/503")
 ASYNC_STATUS_404_ENDPOINT = URL(f"{ASYNC_BASE_URL}/status/404")

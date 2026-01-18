@@ -2,8 +2,8 @@ from textwrap import dedent
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.hash import Sha2Hash
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.hash import Sha2Hash
 
 pytestmark = pytest.mark.spark
 

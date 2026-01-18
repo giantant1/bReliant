@@ -1,15 +1,15 @@
-# Steps in Koheesio
+# Steps in breliant
 
-In the Koheesio framework, the `Step` class and its derivatives play a crucial role. They serve as the building blocks 
+In the breliant framework, the `Step` class and its derivatives play a crucial role. They serve as the building blocks 
 for creating data pipelines, allowing you to define custom units of logic that can be executed. This document will 
-guide you through its key features and show you how to leverage its capabilities in your Koheesio applications.
+guide you through its key features and show you how to leverage its capabilities in your breliant applications.
 
-Several type of Steps are available in Koheesio, including `Reader`, `Transformation`, `Writer`, and `Task`.
+Several type of Steps are available in breliant, including `Reader`, `Transformation`, `Writer`, and `Task`.
 
 
 ## What is a Step?
 
-A `Step` is an atomic operation serving as the building block of data pipelines built with the Koheesio framework. 
+A `Step` is an atomic operation serving as the building block of data pipelines built with the breliant framework. 
 Tasks typically consist of a series of Steps. 
 
 A step can be seen as an operation on a set of inputs, that returns a set of outputs. This does not imply that steps 
@@ -55,12 +55,12 @@ Step ---> O3["Output 3"]
 
 ## How to Read a Step?
 
-A `Step` in Koheesio is a class that represents a unit of work in a data pipeline. It's similar to a Python built-in 
+A `Step` in breliant is a class that represents a unit of work in a data pipeline. It's similar to a Python built-in 
 data class, but with additional features for execution, validation, and logging.
 
 When you look at a `Step`, you'll typically see the following components:
 
-1. **Class Definition**: The `Step` is defined as a class that inherits from the base `Step` class in Koheesio. 
+1. **Class Definition**: The `Step` is defined as a class that inherits from the base `Step` class in breliant. 
     For example, `class MyStep(Step):`.
 
 2. **Input Fields**: These are defined as class attributes with type annotations, similar to attributes in a Python 
@@ -100,7 +100,7 @@ automatic validation of inputs and outputs (thanks to Pydantic), logging, and er
 ## Understanding Inheritance in Steps
 
 Inheritance is a core concept in object-oriented programming where a class (child or subclass) inherits properties and 
-methods from another class (parent or superclass). In the context of Koheesio, when you create a new `Step`, you're 
+methods from another class (parent or superclass). In the context of breliant, when you create a new `Step`, you're 
 creating a subclass that inherits from the base `Step` class.
 
 When a new Step is defined (like `class MyStep(Step):`), it inherits all the properties and methods from the `Step` 
@@ -108,7 +108,7 @@ class. This includes the `execute` method, which is then overridden to provide t
 
 Here's a simple breakdown:
 
-1. **Parent Class (Superclass)**: This is the `Step` class in Koheesio. It provides the basic structure and 
+1. **Parent Class (Superclass)**: This is the `Step` class in breliant. It provides the basic structure and 
     functionalities of a Step, including input and output validation, logging, and error handling.
 
 2. **Child Class (Subclass)**: This is the new Step you define, like `MyStep`. It inherits all the properties and 
@@ -122,7 +122,7 @@ Here's a simple breakdown:
     in the parent class. In the case of Steps, you override the `execute` method to define the specific logic of your 
     Step.
 
-Understanding inheritance is key to understanding how Steps work in Koheesio. It allows you to leverage the 
+Understanding inheritance is key to understanding how Steps work in breliant. It allows you to leverage the 
 functionalities provided by the `Step` class and focus on implementing the specific logic of your Step.
 
 
@@ -158,7 +158,7 @@ also being easier to debug and scale.
 
 ## Compared to a regular Pydantic Basemodel
 
-A `Step` in Koheesio, while built on top of Pydantic's `BaseModel`, provides additional features specifically designed 
+A `Step` in breliant, while built on top of Pydantic's `BaseModel`, provides additional features specifically designed 
 for creating data pipelines. Here are some key differences:
 
 1. **Execution Method**: A `Step` includes an `execute` method that needs to be implemented. This method contains the 
@@ -379,7 +379,7 @@ df.show()
 
 ## Conclusion
 
-In this document, we've covered the key features of the `Step` class in the Koheesio framework, including its ability 
+In this document, we've covered the key features of the `Step` class in the breliant framework, including its ability 
 to define custom units of logic, manage inputs and outputs, and support for serialization. The automatic decoration of 
 the `execute` method provides several advantages that simplify step implementation and ensure consistency across all 
 steps.

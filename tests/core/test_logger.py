@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from koheesio.logger import (
+from breliant.logger import (
     LoggingFactory,
     MaskedDict,
     MaskedFloat,
@@ -22,7 +22,7 @@ class TestLoggingFactory:
     def test_get_logger(self):
         child_name = "child_logger"
         ind_name = "independent_logger"
-        logger = LoggingFactory.get_logger(name=child_name, inherit_from_koheesio=True)
+        logger = LoggingFactory.get_logger(name=child_name, inherit_from_breliant=True)
         logger.debug("Test Child DEBUG")
         logger_independent = LoggingFactory.get_logger(name=ind_name)
         logger_independent.setLevel("INFO")
@@ -38,7 +38,7 @@ class TestLoggingFactory:
 class TestAddHandlers:
     @pytest.fixture
     def mock_import_class(self):
-        with patch("koheesio.logger.import_class") as mock:
+        with patch("breliant.logger.import_class") as mock:
             yield mock
 
     @pytest.fixture

@@ -4,11 +4,11 @@ from pathlib import Path
 import pytest
 from requests_mock.mocker import Mocker
 
-from koheesio import LoggingFactory  # type: ignore
-from koheesio.steps.download_file import DownloadFileStep, FileWriteMode  # type: ignore
+from breliant import LoggingFactory  # type: ignore
+from breliant.steps.download_file import DownloadFileStep, FileWriteMode  # type: ignore
 
 URL = "http://example.com/testfile.txt"
-log = LoggingFactory.get_logger(name="test_download_file", inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name="test_download_file", inherit_from_breliant=True)
 
 
 @pytest.fixture

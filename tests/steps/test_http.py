@@ -7,9 +7,9 @@ import responses
 
 from pydantic import ValidationError
 
-from koheesio.logger import LoggingFactory
-from koheesio.models import SecretStr
-from koheesio.steps.http import (
+from breliant.logger import LoggingFactory
+from breliant.models import SecretStr
+from breliant.steps.http import (
     HttpDeleteStep,
     HttpGetStep,
     HttpMethod,
@@ -18,7 +18,7 @@ from koheesio.steps.http import (
     HttpStep,
 )
 
-BASE_URL = "https://42.koheesio.test"
+BASE_URL = "https://42.breliant.test"
 GET_ENDPOINT = f"{BASE_URL}/get"
 POST_ENDPOINT = f"{BASE_URL}/post"
 PUT_ENDPOINT = f"{BASE_URL}/put"
@@ -27,7 +27,7 @@ STATUS_404_ENDPOINT = f"{BASE_URL}/status/404"
 STATUS_500_ENDPOINT = f"{BASE_URL}/status/500"
 STATUS_503_ENDPOINT = f"{BASE_URL}/status/503"
 
-log = LoggingFactory.get_logger(name="test_http", inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name="test_http", inherit_from_breliant=True)
 
 
 @responses.activate

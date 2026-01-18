@@ -5,11 +5,11 @@ import logging
 import pytest
 from requests_mock.mocker import Mocker
 
-from koheesio.logger import LoggingFactory
-from koheesio.models import SecretStr
-from koheesio.sso import okta as o
+from breliant.logger import LoggingFactory
+from breliant.models import SecretStr
+from breliant.sso import okta as o
 
-log = LoggingFactory.get_logger(name="test_download_file", inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name="test_download_file", inherit_from_breliant=True)
 
 
 @pytest.fixture(scope="function")

@@ -1,10 +1,10 @@
-site_name: Koheesio
-site_url: https://engineering.nike.com/koheesio/
+site_name: breliant
+site_url: https://engineering.nike.com/breliant/
 site_description:
-  Koheesio is an open source python library that simplifies the development of data engineering pipelines.
+  breliant is an open source python library that simplifies the development of data engineering pipelines.
 
-repo_name: Nike-Inc/koheesio
-repo_url: https://github.com/Nike-Inc/koheesio
+repo_name: Nike-Inc/breliant
+repo_url: https://github.com/Nike-Inc/breliant
 
 use_directory_urls: false
 
@@ -14,7 +14,7 @@ validation:
   unrecognized_links: warn
 
 watch:
-  - src/koheesio
+  - src/breliant
 
 extra:
   version:
@@ -22,7 +22,7 @@ extra:
     default: main
   social:
     - icon: material/github
-      link: https://github.com/Nike-Inc/koheesio.git
+      link: https://github.com/Nike-Inc/breliant.git
     - icon: material/bulletin-board
       link: https://github.com/orgs/Nike-Inc/projects/4
 
@@ -34,11 +34,11 @@ nav:
 #      - tutorials/how-to.md
     - Getting Started:
       - Installation: tutorials/getting-started.md
-      - Learn Koheesio: tutorials/learn-koheesio.md
+      - Learn breliant: tutorials/learn-breliant.md
       - Hello World: tutorials/hello-world.md
     - Advanced Topics:
       - Data Processing: tutorials/advanced-data-processing.md
-      - Testing Steps: tutorials/testing-koheesio-steps.md
+      - Testing Steps: tutorials/testing-breliant-steps.md
   - Reference:  # reference folder
     - Concepts:
       - reference/concepts/concepts.md
@@ -67,7 +67,7 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-  favicon: assets/logo_koheesio.svg
+  favicon: assets/logo_breliant.svg
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate

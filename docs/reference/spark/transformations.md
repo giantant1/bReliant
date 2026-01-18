@@ -1,6 +1,6 @@
 # Transformation Module
 
-The `Transformation` module in Koheesio provides a set of classes for transforming data within a DataFrame. A
+The `Transformation` module in breliant provides a set of classes for transforming data within a DataFrame. A
 `Transformation` is a type of `SparkStep` that takes a DataFrame as input, applies a transformation, and returns a
 DataFrame as output. The transformation logic is implemented in the `execute` method of each `Transformation` subclass.
 
@@ -20,7 +20,7 @@ See [API Reference](../../api_reference/spark/transformations/index.md) for a de
 
 ## Types of Transformations
 
-There are three main types of transformations in Koheesio:
+There are three main types of transformations in breliant:
 
 1. `Transformation`: This is the base class for all transformations. It takes a DataFrame as input and returns a
     DataFrame as output. The transformation logic is implemented in the `execute` method.
@@ -76,7 +76,7 @@ Here's an example of a `ColumnsTransformation`:
 
 ```python
 from pyspark.sql import functions as f
-from koheesio.spark.transformations import ColumnsTransformation
+from breliant.spark.transformations import ColumnsTransformation
 
 class AddOne(ColumnsTransformation):
     def execute(self):
@@ -109,7 +109,7 @@ Here's an example of a `ColumnsTransformationWithTarget`:
 
 ```python
 from pyspark.sql import Column
-from koheesio.spark.transformations import ColumnsTransformationWithTarget
+from breliant.spark.transformations import ColumnsTransformationWithTarget
 
 class AddOneWithTarget(ColumnsTransformationWithTarget):
     def func(self, col: Column):
@@ -155,9 +155,9 @@ of the columns and handles the `target_column` as well.
     the result will be stored in the source column.
 
 
-## Examples of Transformation Classes in Koheesio
+## Examples of Transformation Classes in breliant
 
-Koheesio provides a variety of `Transformation` subclasses for transforming data in different ways. Here are some
+breliant provides a variety of `Transformation` subclasses for transforming data in different ways. Here are some
 examples:
 
 - `DataframeLookup`: This transformation joins two dataframes together based on a list of join mappings. It allows you
@@ -167,7 +167,7 @@ examples:
 
     ```python
     from pyspark.sql import SparkSession
-    from koheesio.spark.transformations.lookup import DataframeLookup, JoinMapping, TargetColumn, JoinType
+    from breliant.spark.transformations.lookup import DataframeLookup, JoinMapping, TargetColumn, JoinType
 
     spark = SparkSession.builder.getOrCreate()
     left_df = spark.createDataFrame([(1, "A"), (2, "B")], ["id", "value"])
@@ -191,7 +191,7 @@ examples:
 
     ```python
     from pyspark.sql import SparkSession
-    from koheesio.spark.transformations.uuid5 import HashUUID5
+    from breliant.spark.transformations.uuid5 import HashUUID5
 
     spark = SparkSession.builder.getOrCreate()
     df = spark.createDataFrame([(1, "A"), (2, "B")], ["id", "value"])
@@ -209,9 +209,9 @@ In this example, `HashUUID5` is a subclass of `Transformation`. After creating a
 the `execute` method to apply the transformation. The `execute` method generates a UUID5 hash for each row in the
 DataFrame based on the values of the `id` and `value` columns and stores the result in a new column named `hash`.
 
-## Benefits of using Koheesio Transformations
+## Benefits of using breliant Transformations
 
-Using a Koheesio `Transformation` over plain Spark provides several benefits:
+Using a breliant `Transformation` over plain Spark provides several benefits:
 
 1. **Consistency**: By using `Transformation` classes, you ensure that data is transformed in a consistent manner
     across different parts of your pipeline. This can help avoid errors and make your code easier to understand and
@@ -231,7 +231,7 @@ Using a Koheesio `Transformation` over plain Spark provides several benefits:
 5. **Ease of Testing**: `Transformation` classes are designed to be easily testable. This can make it easier to write
     unit tests for your data pipeline, helping to ensure its correctness and reliability.
 
-6. **Robustness**: Koheesio has been extensively tested with hundreds of unit tests, ensuring that the `Transformation`
+6. **Robustness**: breliant has been extensively tested with hundreds of unit tests, ensuring that the `Transformation`
     classes work as expected under a wide range of conditions. This makes your data pipelines more robust and less
     likely to fail due to unexpected inputs or edge cases.
 
@@ -245,8 +245,8 @@ how to chain transformations:
 
 ```python
 from pyspark.sql import SparkSession
-from koheesio.spark.transformations.uuid5 import HashUUID5
-from koheesio.spark.transformations.lookup import DataframeLookup, JoinMapping, TargetColumn, JoinType
+from breliant.spark.transformations.uuid5 import HashUUID5
+from breliant.spark.transformations.lookup import DataframeLookup, JoinMapping, TargetColumn, JoinType
 
 # Create a SparkSession
 spark = SparkSession.builder.getOrCreate()
@@ -304,7 +304,7 @@ If you encounter an error when using a transformation, here are some steps you c
 
 ## Conclusion
 
-The `Transformation` module in Koheesio provides a powerful and flexible way to transform data in a DataFrame. By
+The `Transformation` module in breliant provides a powerful and flexible way to transform data in a DataFrame. By
 using `Transformation` classes, you can create data pipelines that are simple, consistent, flexible, efficient, and
 reliable. Whether you're performing simple transformations like adding a new column, or complex transformations like
 joining multiple DataFrames, the `Transformation` module has you covered.

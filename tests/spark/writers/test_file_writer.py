@@ -1,8 +1,8 @@
 from pathlib import Path
 from unittest.mock import MagicMock
 
-from koheesio.spark.writers import BatchOutputMode
-from koheesio.spark.writers.file_writer import FileFormat, FileWriter
+from breliant.spark.writers import BatchOutputMode
+from breliant.spark.writers.file_writer import FileFormat, FileWriter
 
 
 def test_path_validator():
@@ -20,7 +20,7 @@ def test_execute(dummy_df, mocker):
 
     mock_df_writer = MagicMock()
 
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     if is_remote_session():
         from pyspark.sql import DataFrame as SparkDataFrame

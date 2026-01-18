@@ -4,7 +4,7 @@ import pytest
 
 from pyspark.sql import functions as F
 
-from koheesio.spark.transformations.row_number_dedup import RowNumberDedup
+from breliant.spark.transformations.row_number_dedup import RowNumberDedup
 
 pytestmark = pytest.mark.spark
 

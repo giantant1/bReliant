@@ -1,8 +1,8 @@
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.replace import Replace
-from koheesio.spark.utils import show_string
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.replace import Replace
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 

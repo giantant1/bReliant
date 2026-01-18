@@ -1,7 +1,7 @@
 import datetime
 from pathlib import Path
 
-from koheesio.spark.readers.excel import ExcelReader
+from breliant.spark.readers.excel import ExcelReader
 
 
 def test_excel_reader(spark, data_path):

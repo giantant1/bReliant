@@ -1,22 +1,22 @@
-# Testing Koheesio Tasks
+# Testing breliant Tasks
 
-Testing is a crucial part of any software development process. Koheesio provides a structured way to define and execute data processing tasks, which makes it easier to build, test, and maintain complex data workflows. This guide will walk you through the process of testing Koheesio tasks.
+Testing is a crucial part of any software development process. breliant provides a structured way to define and execute data processing tasks, which makes it easier to build, test, and maintain complex data workflows. This guide will walk you through the process of testing breliant tasks.
 
 ## Unit Testing
 
-Unit testing involves testing individual components of the software in isolation. In the context of Koheesio, this means testing individual tasks or steps.
+Unit testing involves testing individual components of the software in isolation. In the context of breliant, this means testing individual tasks or steps.
 
-Here's an example of how to unit test a Koheesio task:
+Here's an example of how to unit test a breliant task:
 
 ```python
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
 
-from koheesio.spark import DataFrame
-from koheesio.spark.etl_task import EtlTask
-from koheesio.spark.readers.dummy import DummyReader
-from koheesio.spark.writers.dummy import DummyWriter
-from koheesio.spark.transformations.transform import Transform
+from breliant.spark import DataFrame
+from breliant.spark.etl_task import EtlTask
+from breliant.spark.readers.dummy import DummyReader
+from breliant.spark.writers.dummy import DummyWriter
+from breliant.spark.transformations.transform import Transform
 
 
 def filter_age(df: DataFrame) -> DataFrame:
@@ -56,7 +56,7 @@ equal to 18.
 ## Integration Testing
 
 Integration testing involves testing the interactions between different components of the software. In the context of 
-Koheesio, this means testing the entirety of data flowing through one or more tasks.
+breliant, this means testing the entirety of data flowing through one or more tasks.
 
 We'll create a simple test for a hypothetical EtlTask that uses DeltaReader and DeltaWriter. We'll use pytest and unittest.mock to mock the responses of the reader and writer.  First, let's assume that you have an EtlTask defined in a module named my_module. This task reads data from a Delta table, applies some transformations, and writes the result to another Delta table.
 
@@ -65,11 +65,11 @@ Here's an example of how to write an integration test for this task:
 ```python
 # my_module.py
 from pyspark.sql.functions import col
-from koheesio.spark.etl_task import EtlTask
-from koheesio.spark.readers.delta import DeltaTableReader
-from koheesio.spark.writers.delta import DeltaTableWriter
-from koheesio.spark.transformations.transform import Transform
-from koheesio.context import Context
+from breliant.spark.etl_task import EtlTask
+from breliant.spark.readers.delta import DeltaTableReader
+from breliant.spark.writers.delta import DeltaTableWriter
+from breliant.spark.transformations.transform import Transform
+from breliant.context import Context
 
 
 def filter_age(df):
@@ -101,9 +101,9 @@ Now, let's create a test for this task. We'll use pytest and unittest.mock to mo
 import pytest
 from unittest.mock import patch
 from pyspark.sql import SparkSession
-from koheesio.context import Context
-from koheesio.spark.readers import Reader
-from koheesio.spark.writers import Writer
+from breliant.context import Context
+from breliant.spark.readers import Reader
+from breliant.spark.writers import Writer
 
 from my_module import task
 

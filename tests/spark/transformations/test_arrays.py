@@ -11,7 +11,7 @@ from pyspark.sql.types import (
     StructType,
 )
 
-from koheesio.spark.transformations.arrays import (
+from breliant.spark.transformations.arrays import (
     ArrayDistinct,
     ArrayMax,
     ArrayMean,

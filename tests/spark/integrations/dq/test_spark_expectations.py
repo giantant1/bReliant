@@ -4,7 +4,7 @@ import pytest
 
 from pyspark.sql import SparkSession
 
-from koheesio.utils import get_project_root
+from breliant.utils import get_project_root
 
 PROJECT_ROOT = get_project_root()
 
@@ -45,7 +45,7 @@ class TestSparkExpectationsTransform:
         )
 
     def test_rows_are_dropped(self, spark: SparkSession, prepare_tables):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 
@@ -72,7 +72,7 @@ class TestSparkExpectationsTransform:
         spark.sql("drop table default.output_table_error")
 
     def test_meta_columns_are_not_dropped(self, spark, prepare_tables):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 
@@ -99,7 +99,7 @@ class TestSparkExpectationsTransform:
         spark.sql("drop table default.output_table_error")
 
     def test_meta_columns_are_dropped(self, spark, prepare_tables):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 
@@ -135,7 +135,7 @@ class TestSparkExpectationsTransform:
                 spark.sql(content)
 
     def test_with_full_se_user_conf(self):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 
@@ -165,7 +165,7 @@ class TestSparkExpectationsTransform:
         assert instance.se_user_conf == conf
 
     def test_overwrite_error_writer(self):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 
@@ -194,7 +194,7 @@ class TestSparkExpectationsTransform:
         assert error_writer._options == {"mergeSchema": "true"}
 
     def test_overwrite_stats_writer(self):
-        from koheesio.integrations.spark.dq.spark_expectations import (
+        from breliant.integrations.spark.dq.spark_expectations import (
             SparkExpectationsTransformation,
         )
 

@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.transformations.get_item import GetItem
+from breliant.spark.transformations.get_item import GetItem
 
 pytestmark = pytest.mark.spark
 

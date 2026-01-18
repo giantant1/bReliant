@@ -9,16 +9,16 @@ from pydantic import ValidationError
 
 from pyspark.sql import functions as F
 
-from koheesio.spark import AnalysisException
-from koheesio.spark.delta import DeltaTableStep
-from koheesio.spark.utils import SPARK_MINOR_VERSION
-from koheesio.spark.writers import BatchOutputMode, StreamingOutputMode
-from koheesio.spark.writers.delta import DeltaTableStreamWriter, DeltaTableWriter
-from koheesio.spark.writers.delta.utils import (
+from breliant.spark import AnalysisException
+from breliant.spark.delta import DeltaTableStep
+from breliant.spark.utils import SPARK_MINOR_VERSION
+from breliant.spark.writers import BatchOutputMode, StreamingOutputMode
+from breliant.spark.writers.delta import DeltaTableStreamWriter, DeltaTableWriter
+from breliant.spark.writers.delta.utils import (
     SparkConnectDeltaTableException,
     log_clauses,
 )
-from koheesio.spark.writers.stream import Trigger
+from breliant.spark.writers.stream import Trigger
 
 pytestmark = pytest.mark.spark
 
@@ -55,7 +55,7 @@ def test_delta_partitioning(spark, sample_df_to_partition):
 
 
 def test_delta_table_merge_all(spark):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     table_name = "test_merge_all_table"
     target_df = spark.createDataFrame(
@@ -108,8 +108,8 @@ def test_delta_table_merge_all(spark):
 
 
 def test_deltatablewriter_with_invalid_conditions(spark, dummy_df):
-    from koheesio.spark.utils.connect import is_remote_session
-    from koheesio.spark.writers.delta.utils import get_delta_table_for_name
+    from breliant.spark.utils.connect import is_remote_session
+    from breliant.spark.writers.delta.utils import get_delta_table_for_name
 
     table_name = "delta_test_table"
 
@@ -281,7 +281,7 @@ def test_delta_with_options(spark):
     """
     sample_df = spark.createDataFrame([{"id": 1, "value": "test_value"}])
 
-    with patch("koheesio.spark.writers.delta.DeltaTableWriter.writer", new_callable=MagicMock) as mock_writer:
+    with patch("breliant.spark.writers.delta.DeltaTableWriter.writer", new_callable=MagicMock) as mock_writer:
         delta_writer = DeltaTableWriter(
             table="test_table",
             output_mode=BatchOutputMode.APPEND,
@@ -292,7 +292,7 @@ def test_delta_with_options(spark):
         delta_writer.execute()
         mock_writer.options.assert_called_once_with(testParam1="testValue1", testParam2="testValue2")
 
-    with patch("koheesio.spark.writers.delta.DeltaTableWriter.writer", new_callable=MagicMock) as mock_writer:
+    with patch("breliant.spark.writers.delta.DeltaTableWriter.writer", new_callable=MagicMock) as mock_writer:
         delta_writer = DeltaTableWriter(
             table="test_table",
             output_mode=BatchOutputMode.OVERWRITE,
@@ -305,7 +305,7 @@ def test_delta_with_options(spark):
 
 
 def test_merge_from_args(spark, dummy_df):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     table_name = "test_table_merge_from_args"
     dummy_df.write.format("delta").saveAsTable(table_name)
@@ -383,7 +383,7 @@ def test_merge_from_args_raise_value_error(spark, output_mode_params):
 
 
 def test_merge_no_table(spark):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     table_name = "test_merge_no_table"
     target_df = spark.createDataFrame(

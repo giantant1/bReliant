@@ -3,8 +3,8 @@ from textwrap import dedent
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.sql_transform import SqlTransform
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.sql_transform import SqlTransform
 
 pytestmark = pytest.mark.spark
 

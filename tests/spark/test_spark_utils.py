@@ -5,14 +5,14 @@ import pytest
 
 from pyspark.sql.types import StringType, StructField, StructType
 
-from koheesio.spark.utils import (
+from breliant.spark.utils import (
     get_column_name,
     import_pandas_based_on_pyspark_version,
     on_databricks,
     schema_struct_to_schema_str,
     show_string,
 )
-from koheesio.spark.utils.common import (
+from breliant.spark.utils.common import (
     PysparkConnectModuleNotAvailableWarning,
     check_if_pyspark_connect_module_is_available,
     get_active_session,
@@ -26,7 +26,7 @@ class TestGetActiveSession:
         with (
             # ensure that we are forcing the code to think that we are using spark connect
             patch(
-                "koheesio.spark.utils.common.check_if_pyspark_connect_module_is_available",
+                "breliant.spark.utils.common.check_if_pyspark_connect_module_is_available",
                 return_value=True,
             ),
             # make sure that spark session is not found
@@ -45,7 +45,7 @@ class TestGetActiveSession:
         """Test that get_active_session raises an error when no active session is found."""
         with (
             patch(
-                "koheesio.spark.utils.common.check_if_pyspark_connect_module_is_available",
+                "breliant.spark.utils.common.check_if_pyspark_connect_module_is_available",
                 return_value=False,
             ),
             patch("pyspark.sql.SparkSession.getActiveSession", return_value=None),
@@ -87,7 +87,7 @@ class TestCheckIfPysparkConnectIsSupported:
     def test_check_if_pyspark_connect_module_is_available(self, spark_minor_version: float, mocker):
         """Test that check_if_pyspark_connect_module_is_available returns True when pyspark connect is supported."""
         # Arrange
-        mocker.patch("koheesio.spark.utils.common.SPARK_MINOR_VERSION", spark_minor_version)
+        mocker.patch("breliant.spark.utils.common.SPARK_MINOR_VERSION", spark_minor_version)
         mocker.patch.dict(
             "sys.modules",
             {
@@ -112,7 +112,7 @@ class TestCheckIfPysparkConnectIsSupported:
     def test_pyspark_connect_set_without_partial_deps(self, spark_minor_version: float, mocker):
         """Test that check_if_pyspark_connect_is_available raises an ImportError if pyspark connect is accessed without
         the dependencies being available"""
-        mocker.patch("koheesio.spark.utils.common.SPARK_MINOR_VERSION", spark_minor_version)
+        mocker.patch("breliant.spark.utils.common.SPARK_MINOR_VERSION", spark_minor_version)
 
         with patch.dict("sys.modules", {"grpc": None}):
             # Act & Assert
@@ -125,7 +125,7 @@ class TestCheckIfPysparkConnectIsSupported:
 
 def test_get_spark_minor_version():
     """Test that get_spark_minor_version returns the correctly formatted version."""
-    with patch("koheesio.spark.utils.common.spark_version", "9.9.42"):
+    with patch("breliant.spark.utils.common.spark_version", "9.9.42"):
         assert get_spark_minor_version() == 9.9
 
 
@@ -165,7 +165,7 @@ def test_on_databricks(env_var_value, expected_result):
 def test_import_pandas_based_on_pyspark_version(spark_version, pandas_version, expected_error):
     with (
         patch(
-            "koheesio.spark.utils.common.get_spark_minor_version",
+            "breliant.spark.utils.common.get_spark_minor_version",
             return_value=spark_version,
         ),
         patch("pandas.__version__", new=pandas_version),

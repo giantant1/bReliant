@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.transformations.drop_column import DropColumn
+from breliant.spark.transformations.drop_column import DropColumn
 
 pytestmark = pytest.mark.spark
 

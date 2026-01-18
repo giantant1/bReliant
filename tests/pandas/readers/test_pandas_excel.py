@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from koheesio.pandas.readers.excel import ExcelReader
+from breliant.pandas.readers.excel import ExcelReader
 
 
 def test_excel_reader(data_path):

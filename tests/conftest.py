@@ -5,8 +5,8 @@ import uuid
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.utils import get_project_root
+from breliant.logger import LoggingFactory
+from breliant.utils import get_project_root
 
 if os.name != "nt":  # 'nt' is the name for Windows
     # force time zone to be UTC

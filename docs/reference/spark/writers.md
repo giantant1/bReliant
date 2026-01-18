@@ -1,6 +1,6 @@
 # Writer Module
 
-The `Writer` module in Koheesio provides a set of classes for writing data to various destinations. A `Writer` is a
+The `Writer` module in breliant provides a set of classes for writing data to various destinations. A `Writer` is a
 type of `SparkStep` that takes data from `self.input.df` and writes it to a destination based on the output parameters.
 
 ## What is a Writer?
@@ -93,9 +93,9 @@ inherits all the properties and methods from the `Writer` class and can add or o
 that needs to be overridden is the `execute` method, which should implement the logic for writing data from
 `self.input.df` to the destination.
 
-## Examples of Writer Classes in Koheesio
+## Examples of Writer Classes in breliant
 
-Koheesio provides a variety of `Writer` subclasses for writing data to different destinations. Here are just a few
+breliant provides a variety of `Writer` subclasses for writing data to different destinations. Here are just a few
 examples:
 
 - `BoxFileWriter`
@@ -107,8 +107,8 @@ examples:
 - `SnowflakeWriter`
 - `StreamWriter`
 
-Please note that this is not an exhaustive list. Koheesio provides many more `Writer` subclasses for a wide range of
-data destinations. For a complete list, please refer to the Koheesio documentation or the source code.
+Please note that this is not an exhaustive list. breliant provides many more `Writer` subclasses for a wide range of
+data destinations. For a complete list, please refer to the breliant documentation or the source code.
 
 ## Benefits of Using Writers in Data Pipelines
 

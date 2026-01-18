@@ -2,8 +2,8 @@ import logging
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.debug import Peek
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.debug import Peek
 
 
 @pytest.mark.parametrize(

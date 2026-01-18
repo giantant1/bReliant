@@ -3,16 +3,16 @@ import pytest
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql.functions import col, lit
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.delta import DeltaTableStep
-from koheesio.spark.etl_task import EtlTask
-from koheesio.spark.readers.delta import DeltaTableReader, DeltaTableStreamReader
-from koheesio.spark.readers.dummy import DummyReader
-from koheesio.spark.transformations.sql_transform import SqlTransform
-from koheesio.spark.transformations.transform import Transform
-from koheesio.spark.utils import SPARK_MINOR_VERSION
-from koheesio.spark.writers.delta import DeltaTableStreamWriter, DeltaTableWriter
-from koheesio.spark.writers.dummy import DummyWriter
+from breliant.logger import LoggingFactory
+from breliant.spark.delta import DeltaTableStep
+from breliant.spark.etl_task import EtlTask
+from breliant.spark.readers.delta import DeltaTableReader, DeltaTableStreamReader
+from breliant.spark.readers.dummy import DummyReader
+from breliant.spark.transformations.sql_transform import SqlTransform
+from breliant.spark.transformations.transform import Transform
+from breliant.spark.utils import SPARK_MINOR_VERSION
+from breliant.spark.writers.delta import DeltaTableStreamWriter, DeltaTableWriter
+from breliant.spark.writers.dummy import DummyWriter
 
 pytestmark = pytest.mark.spark
 
@@ -70,7 +70,7 @@ def test_delta_task(spark):
 
 
 def test_delta_stream_task(spark, checkpoint_folder):
-    from koheesio.spark.utils.connect import is_remote_session
+    from breliant.spark.utils.connect import is_remote_session
 
     delta_table = DeltaTableStep(table="delta_stream_table")
     DummyReader(range=5).read().write.format("delta").mode("append").saveAsTable("delta_stream_table")

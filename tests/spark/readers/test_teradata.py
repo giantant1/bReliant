@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.readers.teradata import TeradataReader
+from breliant.spark.readers.teradata import TeradataReader
 
 pytestmark = pytest.mark.spark
 

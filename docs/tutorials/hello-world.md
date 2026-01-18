@@ -2,12 +2,12 @@
 
 ## Bring your own SparkSession
 
-The Koheesio Spark module does not set up a SparkSession for you. You need to create a SparkSession before using 
-Koheesio spark classes. This is the entry point for any Spark functionality, allowing the step to interact with the 
+The breliant Spark module does not set up a SparkSession for you. You need to create a SparkSession before using 
+breliant spark classes. This is the entry point for any Spark functionality, allowing the step to interact with the 
 Spark cluster.
 
 - Every `SparkStep` has a `spark` attribute, which is the active SparkSession.
-- Koheesio supports both local and remote (connect) Spark Sessions
+- breliant supports both local and remote (connect) Spark Sessions
 - The SparkSession you created can be explicitly passed to the `SparkStep` constructor (this is optional)
 
 To create a simple SparkSession, you can use the following code:
@@ -20,13 +20,13 @@ spark = SparkSession.builder.getOrCreate()
 
 ## Creating a Custom Step
 
-This example demonstrates how to use the `SparkStep` class from the `koheesio` library to create a custom step named 
+This example demonstrates how to use the `SparkStep` class from the `breliant` library to create a custom step named 
 `HelloWorldStep`.
 
 ### Code
 
 ```python
-from koheesio.spark import SparkStep
+from breliant.spark import SparkStep
 
 class HelloWorldStep(SparkStep):
     message: str
@@ -47,31 +47,31 @@ hello_world_step.output.df.show()
 
 ### Understanding the Code
 
-The `HelloWorldStep` class is a `SparkStep` in Koheesio, designed to generate a DataFrame with a single row containing a custom message. Here's a more detailed overview:
+The `HelloWorldStep` class is a `SparkStep` in breliant, designed to generate a DataFrame with a single row containing a custom message. Here's a more detailed overview:
 
-- `HelloWorldStep` inherits from `SparkStep`, a fundamental building block in Koheesio for creating data processing steps with Apache Spark.
+- `HelloWorldStep` inherits from `SparkStep`, a fundamental building block in breliant for creating data processing steps with Apache Spark.
 - It has a `message` attribute. When creating an instance of `HelloWorldStep`, you can pass a custom message that will be used in the DataFrame.
 - `SparkStep` also includes an `Output` class, used to store the output of the step. In this case, `Output` has a `df` attribute to store the output DataFrame.
 - The `execute` method creates a DataFrame with the custom message and stores it in `output.df`. It doesn't return a value explicitly; instead, the output DataFrame can be accessed via `output.df`.
-- Koheesio uses pydantic for automatic validation of the step's input and output, ensuring they are correctly defined and of the correct types.
+- breliant uses pydantic for automatic validation of the step's input and output, ensuring they are correctly defined and of the correct types.
 - The `spark` attribute can be optionally passed to the constructor when creating an instance of `HelloWorldStep`. This allows you to use an existing SparkSession or create a new one specifically for the step.
-- If no `SparkSession` is passed to a `SparkStep`, Koheesio will use the `SparkSession.getActiveSession()` method to attempt retrieving an active SparkSession. If no active session is found, your code will not work.
+- If no `SparkSession` is passed to a `SparkStep`, breliant will use the `SparkSession.getActiveSession()` method to attempt retrieving an active SparkSession. If no active session is found, your code will not work.
 
 Note: Pydantic is a data validation library that provides a way to validate that the data (in this case, the input and output of the step) conforms to the expected format.
 
 
 ## Creating a Custom Task
 
-This example demonstrates how to use the `EtlTask` from the `koheesio` library to create a custom task named `MyFavoriteMovieTask`.
+This example demonstrates how to use the `EtlTask` from the `breliant` library to create a custom task named `MyFavoriteMovieTask`.
 
 ### Code
 
 ```python
 from typing import Any
 from pyspark.sql import functions as f
-from koheesio.spark import DataFrame
-from koheesio.spark.transformations.transform import Transform
-from koheesio.spark.etl_task import EtlTask
+from breliant.spark import DataFrame
+from breliant.spark.transformations.transform import Transform
+from breliant.spark.etl_task import EtlTask
 
 
 def add_column(df: DataFrame, target_column: str, value: Any):
@@ -121,9 +121,9 @@ source:
 
 ```python
 from pyspark.sql import SparkSession
-from koheesio.context import Context
-from koheesio.spark.readers.dummy import DummyReader
-from koheesio.spark.writers.dummy import DummyWriter
+from breliant.context import Context
+from breliant.spark.readers.dummy import DummyReader
+from breliant.spark.writers.dummy import DummyWriter
 
 context = Context.from_yaml("sample.yaml")
 
@@ -141,15 +141,15 @@ my_fav_mov_task.execute()
 
 This example creates a `MyFavoriteMovieTask` that adds a column named `myFavoriteMovie` to the DataFrame. The value for this column is provided when the task is instantiated.
 
-The `MyFavoriteMovieTask` class is a custom task that extends the `EtlTask` from the `koheesio` library. It demonstrates how to add a custom transformation to a DataFrame. Here's a detailed breakdown:
+The `MyFavoriteMovieTask` class is a custom task that extends the `EtlTask` from the `breliant` library. It demonstrates how to add a custom transformation to a DataFrame. Here's a detailed breakdown:
 
-- `MyFavoriteMovieTask` inherits from `EtlTask`, a base class in Koheesio for creating Extract-Transform-Load (ETL) tasks with Apache Spark.
+- `MyFavoriteMovieTask` inherits from `EtlTask`, a base class in breliant for creating Extract-Transform-Load (ETL) tasks with Apache Spark.
 
 - It has a `my_favorite_movie` attribute. When creating an instance of `MyFavoriteMovieTask`, you can pass a custom movie title that will be used in the DataFrame.
 
 - The `transform` method is where the main logic of the task is implemented. It first extracts the data (if not already provided), then applies a series of transformations to the DataFrame.
 
-- In this case, the transformation is adding a new column to the DataFrame named `myFavoriteMovie`, with the value set to the `my_favorite_movie` attribute. This is done using the `add_column` function and the `Transform` class from Koheesio.
+- In this case, the transformation is adding a new column to the DataFrame named `myFavoriteMovie`, with the value set to the `my_favorite_movie` attribute. This is done using the `add_column` function and the `Transform` class from breliant.
 
 - The transformed DataFrame is then stored in `self.output.transform_df`.
 

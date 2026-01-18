@@ -11,9 +11,9 @@ from pydantic import ValidationError
 
 from pyspark.sql import functions as f
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark import DataFrame
-from koheesio.spark.transformations.cast_to_datatype import (
+from breliant.logger import LoggingFactory
+from breliant.spark import DataFrame
+from breliant.spark.transformations.cast_to_datatype import (
     CastToBinary,
     CastToBoolean,
     CastToByte,
@@ -27,7 +27,7 @@ from koheesio.spark.transformations.cast_to_datatype import (
     CastToString,
     CastToTimestamp,
 )
-from koheesio.spark.utils import SparkDatatype, show_string
+from breliant.spark.utils import SparkDatatype, show_string
 
 pytestmark = pytest.mark.spark
 
@@ -401,7 +401,7 @@ def test_cast_to_specific_type(klass, expected, df_with_all_types):
         (10, 1, Decimal("123456789.0123456789"), [{"c1": Decimal("1.0"), "c2": Decimal("123456789.0")}]),
         (10, 9, Decimal("123456789.0123456789"), [{"c1": Decimal("1.0"), "c2": None}]),
         (10, 10, Decimal("1"), [{"c1": None, "c2": None}]),
-        # Koheesio defaults to a precision of 38 and a scale of 18 - c2 is of max precision and scale in this case
+        # breliant defaults to a precision of 38 and a scale of 18 - c2 is of max precision and scale in this case
         (
             38,
             18,

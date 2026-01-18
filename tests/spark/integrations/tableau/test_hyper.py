@@ -5,7 +5,7 @@ import pytest
 
 from pyspark.sql.functions import lit
 
-from koheesio.integrations.spark.tableau.hyper import (
+from breliant.integrations.spark.tableau.hyper import (
     NOT_NULLABLE,
     NULLABLE,
     HyperFileDataFrameWriter,

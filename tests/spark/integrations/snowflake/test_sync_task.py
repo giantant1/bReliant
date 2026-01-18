@@ -8,17 +8,17 @@ import pytest
 
 import pydantic
 
-from koheesio.integrations.snowflake import SnowflakeRunQueryPython
-from koheesio.integrations.spark.snowflake import (
+from breliant.integrations.snowflake import SnowflakeRunQueryPython
+from breliant.integrations.spark.snowflake import (
     SnowflakeWriter,
     SynchronizeDeltaToSnowflakeTask,
 )
-from koheesio.spark import DataFrame
-from koheesio.spark.delta import DeltaTableStep
-from koheesio.spark.readers.delta import DeltaTableReader
-from koheesio.spark.writers import BatchOutputMode, StreamingOutputMode
-from koheesio.spark.writers.delta import DeltaTableWriter
-from koheesio.spark.writers.stream import ForEachBatchStreamWriter
+from breliant.spark import DataFrame
+from breliant.spark.delta import DeltaTableStep
+from breliant.spark.readers.delta import DeltaTableReader
+from breliant.spark.writers import BatchOutputMode, StreamingOutputMode
+from breliant.spark.writers.delta import DeltaTableWriter
+from breliant.spark.writers.stream import ForEachBatchStreamWriter
 
 pytestmark = pytest.mark.spark
 
@@ -127,7 +127,7 @@ class TestSnowflakeSyncTask:
 
     def test_merge(self, spark, foreach_batch_stream_local, snowflake_staging_file, mocker):
         # Arrange - Prepare Delta requirements
-        mocker.patch("koheesio.integrations.spark.snowflake.SnowflakeRunQueryPython.execute")
+        mocker.patch("breliant.integrations.spark.snowflake.SnowflakeRunQueryPython.execute")
         source_table = DeltaTableStep(database="klettern", table="test_merge")
         spark.sql(
             dedent(

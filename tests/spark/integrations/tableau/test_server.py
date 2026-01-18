@@ -3,16 +3,16 @@ from typing import Any
 import pytest
 from tableauserverclient import DatasourceItem
 
-from koheesio.integrations.spark.tableau.server import TableauHyperPublisher
+from breliant.integrations.spark.tableau.server import TableauHyperPublisher
 
 
 class TestTableauServer:
     @pytest.fixture(autouse=False)
     def server(self, mocker):
-        __server = mocker.patch("koheesio.integrations.spark.tableau.server.Server")
+        __server = mocker.patch("breliant.integrations.spark.tableau.server.Server")
         __mock_server = __server.return_value
 
-        from koheesio.integrations.spark.tableau.server import TableauServer
+        from breliant.integrations.spark.tableau.server import TableauServer
 
         # Mocking various returns from the Tableau server
         def create_mock_object(name_prefix: str, object_id: int, spec: Any = None, project_id: int = None):

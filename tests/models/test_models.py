@@ -1,4 +1,4 @@
-"""Test suite for Koheesio's extended BaseModel class"""
+"""Test suite for breliant's extended BaseModel class"""
 
 from typing import Any, Optional
 import json
@@ -10,8 +10,8 @@ import yaml
 from pydantic import SecretBytes as PydanticSecretBytes
 from pydantic import SecretStr as PydanticSecretStr
 
-from koheesio.context import Context
-from koheesio.models import BaseModel, ExtraParamsMixin, ListOfStrings, SecretBytes, SecretStr
+from breliant.context import Context
+from breliant.models import BaseModel, ExtraParamsMixin, ListOfStrings, SecretBytes, SecretStr
 
 
 class TestBaseModel:
@@ -303,7 +303,7 @@ class TestSecretStr:
     # reference values
     secret_value = "foobarbazbladibla"
     pydantic_secret = PydanticSecretStr(secret_value)
-    koheesio_secret = SecretStr(secret_value)
+    breliant_secret = SecretStr(secret_value)
     prefix = "prefix"
     suffix = "suffix"
 
@@ -315,17 +315,17 @@ class TestSecretStr:
 
     def test_secret_str_str(self) -> None:
         """check that the integrity of the str method in SecretStr is preserved
-        by comparing Pydantic's SecretStr with Koheesio's SecretStr str method output"""
+        by comparing Pydantic's SecretStr with breliant's SecretStr str method output"""
         pydantic_secret_str = str(self.pydantic_secret)
-        actual = str(self.koheesio_secret)
+        actual = str(self.breliant_secret)
         expected = "**********"
         assert pydantic_secret_str == actual == expected
 
     def test_secret_str_repr(self) -> None:
         """check that the integrity of the repr method in SecretStr is preserved
-        by comparing Pydantic's SecretStr with Koheesio's SecretStr repr method output"""
+        by comparing Pydantic's SecretStr with breliant's SecretStr repr method output"""
         pydantic_secret_str = repr(self.pydantic_secret)
-        actual = repr(self.koheesio_secret)
+        actual = repr(self.breliant_secret)
         expected = "SecretStr('**********')"
         assert pydantic_secret_str == actual == expected
 
@@ -347,14 +347,14 @@ class TestSecretStr:
     def test_concatenate_unhappy(self, other: Any) -> None:
         """check that concatenating a SecretStr with a non-stringable objects raises an exception"""
         with pytest.raises(TypeError):
-            _ = self.koheesio_secret + other
+            _ = self.breliant_secret + other
 
     def test_secret_str_with_f_string_secretstr(self) -> None:
         """check that a str and SecretStr can be combined with one another using f-strings
         Test through using f-string with a SecretStr. Here we expect that the secret gets properly processed.
         """
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual_secret = SecretStr(f"{self.prefix}{secret}{self.suffix}")
         # assert
@@ -366,7 +366,7 @@ class TestSecretStr:
         Test through using f-string with a str. Here we expect the secret to remain hidden.
         """
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual_str = f"{self.prefix}{secret}{self.suffix}"
         # assert
@@ -376,7 +376,7 @@ class TestSecretStr:
     def test_secret_str_add(self) -> None:
         """check that a SecretStr and a str can be combined with one another using concatenation"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = secret + self.suffix
         # assert
@@ -386,7 +386,7 @@ class TestSecretStr:
     def test_secret_str_radd(self) -> None:
         """check that a str and SecretStr can be combined with one another using concatenation"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = self.prefix + secret
         # assert
@@ -396,7 +396,7 @@ class TestSecretStr:
     def test_add_two_secret_str(self) -> None:
         """check that two SecretStr can be added together"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = secret + secret
         # assert
@@ -406,7 +406,7 @@ class TestSecretStr:
     def test_secret_str_mul_and_rmul(self) -> None:
         """check that a SecretBytes can be multiplied by an integer"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual_mul = secret * 3
         actual_rmul = 3 * secret
@@ -532,20 +532,20 @@ class TestSecretBytes:
     # reference values
     secret_value = b"foobarbazbladibla"
     pydantic_secret = PydanticSecretBytes(secret_value)
-    koheesio_secret = SecretBytes(secret_value)
+    breliant_secret = SecretBytes(secret_value)
     prefix = b"prefix"
     suffix = b"suffix"
 
     def test_secret_bytes_str(self) -> None:
         """check that the str method in SecretBytes is preserved"""
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         actual = str(secret)
         expected = "b'**********'"
         assert actual == expected
 
     def test_secret_bytes_repr(self) -> None:
         """check that the repr method in SecretBytes is preserve"""
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         actual = repr(secret)
         expected = "SecretBytes(b'**********')"
         assert actual == expected
@@ -553,7 +553,7 @@ class TestSecretBytes:
     def test_secret_bytes_add(self) -> None:
         """check that a SecretBytes and a bytes can be combined with one another using concatenation"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = secret + self.suffix
         # assert
@@ -563,7 +563,7 @@ class TestSecretBytes:
     def test_secret_bytes_radd(self) -> None:
         """check that a bytes and SecretBytes can be combined with one another using concatenation"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = self.prefix + secret
         # assert
@@ -573,7 +573,7 @@ class TestSecretBytes:
     def test_add_two_secret_bytes(self) -> None:
         """check that two SecretBytes can be added together"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual = secret + secret
         # assert
@@ -583,7 +583,7 @@ class TestSecretBytes:
     def test_secret_bytes_mul_and_rmul(self) -> None:
         """check that a SecretBytes can be multiplied by an integer"""
         # arrange
-        secret = self.koheesio_secret
+        secret = self.breliant_secret
         # act
         actual_mul = secret * 3
         actual_rmul = 3 * secret

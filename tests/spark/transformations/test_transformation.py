@@ -3,12 +3,12 @@ import pytest
 from pyspark.sql import Column
 from pyspark.sql import functions as f
 
-from koheesio.spark.transformations import (
+from breliant.spark.transformations import (
     ColumnsTransformation,
     ColumnsTransformationWithTarget,
 )
-from koheesio.spark.transformations.dummy import DummyTransformation
-from koheesio.spark.utils import SparkDatatype
+from breliant.spark.transformations.dummy import DummyTransformation
+from breliant.spark.utils import SparkDatatype
 
 pytestmark = pytest.mark.spark
 

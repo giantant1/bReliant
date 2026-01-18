@@ -2,8 +2,8 @@ import pytest
 
 from pyspark.sql import functions as F
 
-from koheesio.spark import AnalysisException, DataFrame
-from koheesio.spark.readers.delta import DeltaTableReader
+from breliant.spark import AnalysisException, DataFrame
+from breliant.spark.readers.delta import DeltaTableReader
 
 pytestmark = pytest.mark.spark
 

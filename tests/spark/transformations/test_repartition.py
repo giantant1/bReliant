@@ -2,8 +2,8 @@ import pytest
 
 from pyspark.sql import DataFrame
 
-from koheesio.models import ValidationError
-from koheesio.spark.transformations.repartition import Repartition
+from breliant.models import ValidationError
+from breliant.spark.transformations.repartition import Repartition
 
 pytestmark = pytest.mark.spark
 

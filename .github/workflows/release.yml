@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-    - koheesio-v*
+    - breliant-v*
     branches:
     - main
 
@@ -16,10 +16,10 @@ defaults:
     shell: bash
 
 env:
-  APP_NAME: koheesio
+  APP_NAME: breliant
   PYTHON_VERSION: "3.12"
   PYOXIDIZER_VERSION: "0.24.0"
-  DIST_URL: "https://github.com/Nike-Inc/koheesio/releases"
+  DIST_URL: "https://github.com/Nike-Inc/breliant/releases"
 
 jobs:
   python-artifacts:

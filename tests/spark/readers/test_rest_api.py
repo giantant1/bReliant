@@ -8,11 +8,11 @@ from yarl import URL
 
 from pyspark.sql.types import MapType, StringType, StructField, StructType
 
-from koheesio.asyncio.http import AsyncHttpStep
-from koheesio.spark.readers.rest_api import AsyncHttpGetStep, RestApiReader
-from koheesio.steps.http import HttpGetStep, PaginatedHttpGetStep
+from breliant.asyncio.http import AsyncHttpStep
+from breliant.spark.readers.rest_api import AsyncHttpGetStep, RestApiReader
+from breliant.steps.http import HttpGetStep, PaginatedHttpGetStep
 
-ASYNC_BASE_URL = "https://42.koheesio.test"
+ASYNC_BASE_URL = "https://42.breliant.test"
 ASYNC_GET_ENDPOINT = URL(f"{ASYNC_BASE_URL}/get")
 
 pytestmark = pytest.mark.spark
@@ -57,7 +57,7 @@ async def test_async_rest_api_reader(mock_aiohttp):
         url=[URL(ASYNC_GET_ENDPOINT), URL(ASYNC_GET_ENDPOINT)],
         retry_options=ExponentialRetry(),
         connector=TCPConnector(limit=10),
-        headers={"Content-Type": "application/json", "X-type": "Koheesio RestApiReader Test"},
+        headers={"Content-Type": "application/json", "X-type": "breliant RestApiReader Test"},
     )
 
     spark_schema = StructType(
@@ -106,7 +106,7 @@ def test_rest_api_reader(mock_aiohttp):
 
     transport = HttpGetStep(
         url=str(ASYNC_GET_ENDPOINT),
-        headers={"Content-Type": "application/json", "X-Type": "Koheesio RestApiReader Test"},
+        headers={"Content-Type": "application/json", "X-Type": "breliant RestApiReader Test"},
     )
 
     spark_schema = StructType(
@@ -140,4 +140,4 @@ def test_rest_api_reader(mock_aiohttp):
 
     # Assert the responses_urls
     assert len(all_data) == 1
-    assert all_data == [{f"{ASYNC_BASE_URL}/get": "Koheesio RestApiReader Test"}]
+    assert all_data == [{f"{ASYNC_BASE_URL}/get": "breliant RestApiReader Test"}]

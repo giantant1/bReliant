@@ -33,8 +33,8 @@ from pyspark.sql.types import (
     TimestampType,
 )
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.readers.dummy import DummyReader
+from breliant.logger import LoggingFactory
+from breliant.spark.readers.dummy import DummyReader
 
 
 def is_port_free(port):
@@ -304,7 +304,7 @@ def await_job_completion(spark, timeout=300, query_id=None):
     If a query_id is provided, it waits for the specific streaming job with that id. Otherwise, it waits for any active
     streaming job.
     """
-    logger = LoggingFactory.get_logger(name="await_job_completion", inherit_from_koheesio=True)
+    logger = LoggingFactory.get_logger(name="await_job_completion", inherit_from_breliant=True)
 
     start_time = datetime.datetime.now()
     spark = spark.getActiveSession()

@@ -1,6 +1,6 @@
-# Context in Koheesio
+# Context in breliant
 
-In the Koheesio framework, the `Context` class plays a pivotal role. It serves as a flexible and powerful tool for 
+In the breliant framework, the `Context` class plays a pivotal role. It serves as a flexible and powerful tool for 
 managing configuration data and shared variables across tasks and steps in your application.
 
 `Context` behaves much like a Python dictionary, but with additional features that enhance its usability and 
@@ -14,7 +14,7 @@ and load configurations in JSON, YAML, or TOML formats.
 Whether you're setting up the environment for a Task or Step, or managing variables shared across multiple tasks, 
 `Context` provides a robust and efficient solution.
 
-This document will guide you through its key features and show you how to leverage its capabilities in your Koheesio 
+This document will guide you through its key features and show you how to leverage its capabilities in your breliant 
 applications.
 
 ## API Reference
@@ -121,7 +121,7 @@ industry and provide a balance between readability and ease of use.
 
 ## Examples
 
-In this section, we provide a variety of examples to demonstrate the capabilities of the `Context` class in Koheesio.
+In this section, we provide a variety of examples to demonstrate the capabilities of the `Context` class in breliant.
 
 ### Basic Operations
 
@@ -225,7 +225,7 @@ print(context1.to_dict())
 
 ## Jsonpickle and Complex Python Objects
 
-The `Context` class in Koheesio also uses `jsonpickle` for serialization and deserialization of complex Python objects 
+The `Context` class in breliant also uses `jsonpickle` for serialization and deserialization of complex Python objects 
 to and from JSON. This allows you to convert complex Python objects, including custom classes, into a format that can 
 be easily stored and transferred.
 
@@ -233,7 +233,7 @@ Here's an example of how this works:
 
 ```python
 # Import necessary modules
-from koheesio.context import Context
+from breliant.context import Context
 
 # Initialize SnowflakeReader and store in a Context
 snowflake_reader = SnowflakeReader(...)  # fill in with necessary arguments
@@ -262,7 +262,7 @@ However, there are a few things to keep in mind:
 
 1. The classes you're serializing must be importable (i.e., they must be in the Python path) when you're deserializing 
    the JSON. `jsonpickle` needs to be able to import the class to reconstruct the object. This holds true for most
-   Koheesio classes, as they are designed to be importable and reconstructible.
+   breliant classes, as they are designed to be importable and reconstructible.
 
 2. Not all Python objects can be serialized. For example, objects that hold a reference to a file or a network 
    connection can't be serialized because their state can't be easily captured in a static file.
@@ -275,7 +275,7 @@ of these limitations.
 
 ## Conclusion
 
-In this document, we've covered the key features of the `Context` class in the Koheesio framework, including its 
+In this document, we've covered the key features of the `Context` class in the breliant framework, including its 
 ability to handle complex Python objects, support for nested keys and recursive merging, and its serialization and 
 deserialization capabilities. 
 

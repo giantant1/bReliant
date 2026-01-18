@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.readers.spark_sql_reader import SparkSqlReader
+from breliant.spark.readers.spark_sql_reader import SparkSqlReader
 
 pytestmark = pytest.mark.spark
 

@@ -7,7 +7,7 @@ import pytest
 
 from pydantic import ValidationError
 
-from koheesio.integrations.snowflake import (
+from breliant.integrations.snowflake import (
     GrantPrivilegesOnObject,
     GrantPrivilegesOnTable,
     GrantPrivilegesOnView,
@@ -17,7 +17,7 @@ from koheesio.integrations.snowflake import (
     SnowflakeTableStep,
     safe_import_snowflake_connector,
 )
-from koheesio.integrations.snowflake.test_utils import mock_query
+from breliant.integrations.snowflake.test_utils import mock_query
 
 mock_query = mock_query
 
@@ -167,7 +167,7 @@ class TestSnowflakeRunQueryPython:
         """Missing dependency should throw a warning first, and raise an error if execution is attempted"""
         # Arrange -- remove the snowflake connector
         with mock.patch.dict("sys.modules", {"snowflake": None}):
-            from koheesio.integrations.snowflake import safe_import_snowflake_connector
+            from breliant.integrations.snowflake import safe_import_snowflake_connector
 
             # Act & Assert -- first test for the warning, then test for the error
             match_text = "You need to have the `snowflake-connector-python` package installed"
@@ -218,7 +218,7 @@ class TestSnowflakeBaseModel:
         assert options["warehouse"] == "warehouse"
         assert options["schema"] == "schema"
 
-        # make sure none of the koheesio options are present
+        # make sure none of the breliant options are present
         assert "description" not in options
         assert "name" not in options
 
@@ -265,7 +265,7 @@ class TestSnowflakeStep:
         assert kls.name == "SnowflakeStep"
         assert kls.description == "Expands the SnowflakeBaseModel so that it can be used as a Step"
         assert "name" not in options and "description" not in options, (
-            "koheesio options should not be present in get_options"
+            "breliant options should not be present in get_options"
         )
 
 
@@ -277,8 +277,8 @@ class TestSnowflakeTableStep:
 
 
 class TestSnowflakeConfigDir:
-    @mock.patch("koheesio.integrations.snowflake.__check_access_snowflake_config_dir", return_value=False)
-    @mock.patch("koheesio.integrations.snowflake.on_databricks", return_value=True)
+    @mock.patch("breliant.integrations.snowflake.__check_access_snowflake_config_dir", return_value=False)
+    @mock.patch("breliant.integrations.snowflake.on_databricks", return_value=True)
     def test_initialization_on_databricks(self, mock_on_databricks, mock_check_access):
         """Test that the config dir is correctly set"""
         safe_import_snowflake_connector()

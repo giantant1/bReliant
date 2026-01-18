@@ -1,6 +1,6 @@
 import pytest
 
-from koheesio.spark.readers.hana import HanaReader
+from breliant.spark.readers.hana import HanaReader
 
 pytestmark = pytest.mark.spark
 

@@ -8,7 +8,7 @@ mod_symbol = '<code class="doc-symbol doc-symbol-nav doc-symbol-module"></code>'
 # Iterate over each Python file
 for path in sorted(Path("src").rglob("*.py")):
     module_path = path.relative_to("src").with_suffix("")
-    doc_path = path.relative_to("src/koheesio").with_suffix(".md")
+    doc_path = path.relative_to("src/breliant").with_suffix(".md")
     full_doc_path = Path("api_reference", doc_path)
 
     parts = tuple(module_path.parts)

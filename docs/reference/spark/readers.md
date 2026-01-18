@@ -1,6 +1,6 @@
 # Reader Module
 
-The `Reader` module in Koheesio provides a set of classes for reading data from various sources. A `Reader` is a type 
+The `Reader` module in breliant provides a set of classes for reading data from various sources. A `Reader` is a type 
 of `SparkStep` that reads data from a source based on the input parameters and stores the result in `self.output.df` 
 for subsequent steps.
 
@@ -119,25 +119,25 @@ Using `Reader` classes in your data pipelines has several benefits:
 By using the concept of a `Reader`, you can create data pipelines that are simple, consistent, flexible, and efficient.
 
 
-## Examples of Reader Classes in Koheesio
+## Examples of Reader Classes in breliant
 
-Koheesio provides a variety of `Reader` subclasses for reading data from different sources. Here are just a few
+breliant provides a variety of `Reader` subclasses for reading data from different sources. Here are just a few
 examples:
 
 1. **Teradata Reader**: A `Reader` subclass for reading data from Teradata databases. 
-  It's defined in the [`koheesio/steps/readers/teradata.py`]("koheesio/steps/readers/teradata.py") file.
+  It's defined in the [`breliant/steps/readers/teradata.py`]("breliant/steps/readers/teradata.py") file.
 
 2. **Snowflake Reader**: A `Reader` subclass for reading data from Snowflake databases. 
-  It's defined in the [`koheesio/steps/readers/snowflake.py`]("koheesio/steps/readers/snowflake.py") file.
+  It's defined in the [`breliant/steps/readers/snowflake.py`]("breliant/steps/readers/snowflake.py") file.
 
 3. **Box Reader**: A `Reader` subclass for reading data from Box.
-  It's defined in the [`koheesio/steps/integrations/box.py`]("koheesio/steps/integrations/box.py") file.
+  It's defined in the [`breliant/steps/integrations/box.py`]("breliant/steps/integrations/box.py") file.
 
-These are just a few examples of the many `Reader` subclasses available in Koheesio. Each `Reader` subclass is designed
+These are just a few examples of the many `Reader` subclasses available in breliant. Each `Reader` subclass is designed
 to read data from a specific source. They all inherit from the base `Reader` class and implement the `execute` method to
 read data from their respective sources and store it in `self.output.df`.
 
-Please note that this is not an exhaustive list. Koheesio provides many more `Reader` subclasses for a wide range of
-data sources. For a complete list, please refer to the Koheesio documentation or the source code.
+Please note that this is not an exhaustive list. breliant provides many more `Reader` subclasses for a wide range of
+data sources. For a complete list, please refer to the breliant documentation or the source code.
 
-More readers can be found in the `koheesio/steps/readers` module.
+More readers can be found in the `breliant/steps/readers` module.

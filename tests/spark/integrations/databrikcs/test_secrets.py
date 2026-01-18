@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from conftest import ScopeSecrets
 
-from koheesio.integrations.spark.databricks.secrets import DataBricksSecret
+from breliant.integrations.spark.databricks.secrets import DataBricksSecret
 
 
 class TestDatabricksSecret:
@@ -15,9 +15,9 @@ class TestDatabricksSecret:
         secret = DataBricksSecret(scope="secret-scope", parent="custom_parent")
         assert secret.parent == "custom_parent"
 
-    @patch("koheesio.integrations.spark.databricks.secrets.DataBricksSecret._client")
+    @patch("breliant.integrations.spark.databricks.secrets.DataBricksSecret._client")
     def test_get_secrets_no_alias(self, mock_databricks_client):
-        with patch("koheesio.integrations.spark.databricks.utils.on_databricks", return_value=True):
+        with patch("breliant.integrations.spark.databricks.utils.on_databricks", return_value=True):
             dd = {
                 "key1": "value_of_key1",
                 "key2": "value_of_key2",
@@ -29,9 +29,9 @@ class TestDatabricksSecret:
             assert secrets["key1"] == "value_of_key1"
             assert secrets["key2"] == "value_of_key2"
 
-    @patch("koheesio.integrations.spark.databricks.secrets.DataBricksSecret._client")
+    @patch("breliant.integrations.spark.databricks.secrets.DataBricksSecret._client")
     def test_get_secrets_alias(self, mock_databricks_client):
-        with patch("koheesio.integrations.spark.databricks.utils.on_databricks", return_value=True):
+        with patch("breliant.integrations.spark.databricks.utils.on_databricks", return_value=True):
             dd = {
                 "key1": "value_of_key1",
                 "key2": "value_of_key2",

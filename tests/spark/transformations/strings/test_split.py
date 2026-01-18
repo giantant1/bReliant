@@ -4,13 +4,13 @@ Test the Split transformations
 
 import pytest
 
-from koheesio.logger import LoggingFactory
-from koheesio.spark.transformations.strings.split import SplitAll, SplitAtFirstMatch
-from koheesio.spark.utils import show_string
+from breliant.logger import LoggingFactory
+from breliant.spark.transformations.strings.split import SplitAll, SplitAtFirstMatch
+from breliant.spark.utils import show_string
 
 pytestmark = pytest.mark.spark
 
-log = LoggingFactory.get_logger(name=__file__, inherit_from_koheesio=True)
+log = LoggingFactory.get_logger(name=__file__, inherit_from_breliant=True)
 
 string_data = [
     ["Banana lemon orange", 1000, "USA"],
