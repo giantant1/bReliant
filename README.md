@@ -11,9 +11,6 @@
 | Meta    | [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch) [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![types - Mypy](https://img.shields.io/badge/types-Mypy-blue.svg)](https://github.com/python/mypy) [![docstring - numpydoc](https://img.shields.io/badge/docstring-numpydoc-blue)](https://numpydoc.readthedocs.io/en/latest/format.html) [![code style - black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![License - Apache 2.0](https://img.shields.io/github/license/Nike-Inc/koheesio)](LICENSE.txt) |
 
 [//]: # (suggested edit: )
-<p align="center">
-  <img src="breliant_logo.png" width="600" alt="bReliant Agentic Framework">
-</p>
 
 # bReliant
 > **The Agentic Framework for Autonomous Data Cleaning and Smart ETL**
