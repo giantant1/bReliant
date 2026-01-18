@@ -3,28 +3,28 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "koheesio"
+name = "bReliant"
 dynamic = ["version"]
-description = 'The steps-based Koheesio framework'
+description = "bReliant: An agentic, steps-based framework for autonomous data cleaning"
 readme = "README.md"
 requires-python = ">=3.9, <3.13" # 3.10 is the minimum recommended version
 license = "Apache-2.0"
 keywords = [
-  "data-engineering",
-  "data-pipeline",
-  "data-transformation",
-  "software-engineering",
+  "data",
+  "cleaning",
+  "etl",
+  "pipeline",
   "etl",
   "pyspark",
-  "spark",
+  "breliant",
   "pydantic",
-  "data-validation",
-  "data-processing",
-  "data-quality",
-  "step-based",
-  "modular",
-  "reusable",
-  "workflow",
+  "agentic",
+  "ai-agents",
+  "llm-ops",
+  "data-automation",
+  "smart-etl",
+  "autonomous-data",
+  "rag-ready",
 ]
 authors = [
   { name = "Danny Meijer", email = "danny.meijer@nike.com" },
@@ -66,10 +66,10 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/Nike-Inc/koheesio#readme"
-Issues = "https://github.com/Nike-Inc/koheesio/issues"
-Source = "https://github.com/Nike-Inc/koheesio"
-Project = "https://github.com/orgs/Nike-Inc/projects/4"
+Documentation = "https://github.com"
+Issues = "https://github.com"
+Source = "https://github.com"
+Project = "https://github.com"
 
 [project.optional-dependencies]
 async = ["nest-asyncio>=1.6.0"]
