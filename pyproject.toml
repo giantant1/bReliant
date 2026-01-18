@@ -57,7 +57,6 @@ dependencies = [
 Documentation = "https://github.com"
 Issues = "https://github.com"
 Source = "https://github.com/giantant1/bReliant"
-Project = "https://github.com"
 
 [project.optional-dependencies]
 async = ["nest-asyncio>=1.6.0"]
