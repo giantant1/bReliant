@@ -27,19 +27,7 @@ keywords = [
   "rag-ready",
 ]
 authors = [
-  { name = "Danny Meijer", email = "danny.meijer@nike.com" },
-  { name = "Mikita Sakalouski", email = "38785549+mikita-sakalouski@users.noreply.github.com" },
-  { name = "Maxim Mityutko", email = "43565398+maxim-mityutko@users.noreply.github.com" },
-  { name = "Tone Vanden Bergh", email = "60358854+ToneVDB@users.noreply.github.com" },
-  { name = "Pariksheet Barapatre", email = "pbarapatre@gmail.com" },
-  { name = "Riccardo Iacomini", email = "iacomini.riccardo@gmail.com" },
-  { name = "Brend Braeckmans", email = "72923643+BrendBraeckmans@users.noreply.github.com" },
-  { name = "Bruno De Deken", email = "dedekenbruno@gmail.com" },
-  { name = "Nathan Melis", email = "nathanmelis@gmail.com" },
-  { name = "Tyler Richardett", email = "tyler.richardett@gmail.com" },
-  { name = "Federica Emiliani", email = "federica.emiliani1984@gmail.com" },
-  { name = "Louis-Paul Vlx", email = "90868690+louis-paulvlx@users.noreply.github.com" },
-  { name = "Tomasz Zaremba", email = "tomasz@zaremba.it" },
+  { name = "giantant1", email = "22261683+giantant1@users.noreply.github.com" },
 ]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
