@@ -1,7 +1,7 @@
 # bReliant
 
 <p align="center">
-  <img src="YOUR_FILENAME_HERE.png" alt="bReliant logo" width="500">
+  <img src="breliant_logo.png" alt="bReliant logo" width="500">
 </p>
 
 |         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
