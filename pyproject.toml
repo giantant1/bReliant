@@ -138,7 +138,7 @@ Bump by running `hatch version` with one of the following release types:
 - `r` `rev` or `post`         - post release, i.e. 1.0.0.post1
 - `dev`                       - development release, i.e. 1.0.0.dev1
 """
-path = "src/koheesio/__about__.py"
+path = "src/breliant/__about__.py"
 
 #[tool.hatch.envs.hatch-static-analysis.scripts]
 ##TODO: move scripts from linting and style here
@@ -309,7 +309,7 @@ name.".*".env-vars = [
   # set number of workes for parallel testing
   { key = "PYTEST_XDIST_AUTO_NUM_WORKERS", value = "2" },
   # disables Koheesio logo being printed during testing
-  { key = "KOHEESIO__PRINT_LOGO", value = "False" },
+  { key = "BRELIANT__PRINT_LOGO", value = "False" },
 ]
 
 name.".*(pyspark35r).*".env-vars = [
@@ -349,19 +349,19 @@ filterwarnings = [
   "ignore:is_datetime64tz_dtype.*:DeprecationWarning:pyspark.sql.pandas.*",
   "ignore:is_categorical_dtype.*:DeprecationWarning:pyspark.sql.pandas.*",
   "ignore:iteritems.*:FutureWarning:pyspark.sql.pandas.*",
-  # Koheesio warnings
-  "ignore:DayTimeIntervalType.*:UserWarning:koheesio.spark.snowflake.*",
+  # bReliant warnings
+  "ignore:DayTimeIntervalType.*:UserWarning:breliant.spark.snowflake.*",
 ]
 
 [tool.coverage.run]
-source_pkgs = ["koheesio", "tests"]
+source_pkgs = ["breliant", "tests"]
 branch = true
 parallel = true
-omit = ["src/koheesio/__about__.py", "src/koheesio/__init__.py"]
+omit = ["src/breliant/__about__.py", "src/koheesio/__init__.py"]
 
 [tool.coverage.paths]
-koheesio = ["src/koheesio", "*/koheesio/src/koheesio"]
-tests = ["tests", "*/koheesio/tests"]
+koheesio = ["src/breliant", "*/koheesio/src/koheesio"]
+tests = ["tests", "*/breliant/tests"]
 
 [tool.coverage.report]
 exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
